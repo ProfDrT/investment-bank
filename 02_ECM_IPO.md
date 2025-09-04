@@ -31,21 +31,21 @@ flowchart LR
 ```mermaid
 gantt
     title IPO Zeitplan (Beispiel 24 Wochen)
-    dateFormat  WW
-    axisFormat  'W'w
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
 
     section Vorbereitung
-    Readiness/IFRS            :done,   R1,  W01, W04
-    Prospektentwurf           :active, P1,  W05, W10
+    Readiness/IFRS            :done,   R1,  2024-01-01, 2024-01-28
+    Prospektentwurf           :active, P1,  2024-01-29, 2024-03-11
 
     section Marketing
-    Pre-Marketing/Analysten   :        M1,  W09, W11
-    Roadshow/Bookbuilding     :        M2,  W12, W13
+    Pre-Marketing/Analysten   :        M1,  2024-02-26, 2024-03-18
+    Roadshow/Bookbuilding     :        M2,  2024-03-18, 2024-04-01
 
     section Pricing/Listing
-    Pricing                   :        PR,  W13, W13
-    Listing/Erstnotiz         :        LS,  W14, W14
-    Stabilisierung (Fenster)  :        ST,  W14, W18
+    Pricing                   :        PR,  2024-03-25, 2024-04-01
+    Listing/Erstnotiz         :        LS,  2024-04-01, 2024-04-08
+    Stabilisierung (Fenster)  :        ST,  2024-04-01, 2024-04-29
 ```
 
 ## Bookbuilding Sequence
