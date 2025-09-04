@@ -480,74 +480,130 @@ graph TB
 
 Die Equity Research-Branche durchläuft eine fundamentale technologische Transformation durch Künstliche Intelligenz, die besonders bei Private Companies und Small Caps neue Möglichkeiten eröffnet.
 
-### Automatisierung: Screening, Prognosen & Analysen
+### KI-Enhanced Research: Problemlösung im Workflow
+
+Das traditionelle Research steht vor strukturellen Herausforderungen, die KI gezielt addressiert - von der Coverage-Lücke bis zur Effizienz-Krise.
+
+#### Problem-Solution Framework
 
 ```mermaid
-flowchart TB
-  subgraph "Traditional Research"
-    A["Manual Screening"]
-    B["Analyst Forecasts"] 
-    C["Sector Analysis"]
-    D["Report Writing"]
+flowchart TD
+  subgraph "Research-Herausforderungen"
+    A["Coverage-Gap<br/>Small Caps"]
+    B["Information<br/>Overload"]
+    C["Zeitdruck<br/>Earnings Season"]
+    D["Kostendruck<br/>Post-MiFID II"]
   end
   
-  subgraph "AI-Enhanced Research"
-    E["ML-Screening Models"]
-    F["Predictive Analytics"]
-    G["Automated Sector Mapping"]
-    H["Generative Report Drafts"]
+  subgraph "KI-Lösungsansätze"
+    E["Automated<br/>Target Discovery"]
+    F["Intelligent<br/>Document Processing"]
+    G["Real-time<br/>Analysis Generation"]
+    H["Workflow<br/>Optimization"]
   end
   
-  subgraph "Hybrid Approach"
-    I["Human + AI Collaboration"]
-    J["Quality Validation"]
-    K["Strategic Interpretation"]
-    L["Client Interaction"]
+  subgraph "Konkrete Use Cases"
+    I["Hidden Champion<br/>Screening"]
+    J["10-Min Earnings<br/>Reports"]
+    K["ESG Compliance<br/>Monitoring"]
+    L["Personalized<br/>Research"]
   end
   
-  A --> E
-  B --> F
-  C --> G
-  D --> H
-  E --> I
-  F --> J
-  G --> K
-  H --> L
+  A --> E --> I
+  B --> F --> J
+  C --> G --> K
+  D --> H --> L
 ```
 
-#### Machine Learning Applications
+#### 1. Coverage-Gap Problem → Automated Target Discovery
 
-1) **Intelligent Screening & Discovery**
-- **Pattern Recognition**: ML-Modelle identifizieren "Hidden Champions" 
-- **Alternative Data Integration**: Web-Daten, Hiring-Trends, Patent-Aktivität
-- **Criteria Optimization**: Automatische Filter-Adjustierung basierend auf Success-Patterns
-- **Real-time Discovery**: Kontinuierliche Markt-Surveillance für neue Opportunities
+**Das Problem**: Post-MiFID II ~15% Rückgang Small-Cap Coverage, Informationsasymmetrie bei deutschen Mittelständlern
 
-2) **Financial Forecasting Enhancement**
-- **Neural Networks**: Gewinnüberraschungs-Prognosen für Hedgefunds
-- **Decision Trees**: KMU-Kreditausfallrisiko-Bewertung
-- **Ensemble Methods**: Multiple Model-Kombinationen für robuste Prognosen
-- **Scenario Modeling**: ML-unterstützte Monte-Carlo-Simulationen
+**KI-Lösung**: Intelligent Screening & Discovery
+- **"Hidden Champion" Detection**: ML-Patterns erkennen erfolgreiche Nischen-Player
+- **Alternative Data Mining**: Web-Traffic, Hiring-Trends, Patent-Aktivität für Private Companies
+- **Real-time Market Surveillance**: Kontinuierliche Opportunity-Discovery
+- **Success Pattern Learning**: Automatische Filter-Optimierung basierend auf Deal-History
 
-3) **Sector & Market Analysis Automation**
-- **Macro Integration**: Wirtschaftsindikatoren + News-Streams verarbeiten
-- **Early Warning Systems**: Sektor-Wendepunkte via Predictive Analytics
-- **Cross-Asset Analytics**: Rohstoff-Industrie-Korrelationen automatisch erkennen
-- **Market Timing Models**: Optimal Entry/Exit Points für verschiedene Investments
+**Konkreter Use Case: Maschinenbau-Screening**
+```
+Input: "Alle Bayern-Unternehmen, Maschinenbau, €50-250M Umsatz"
+KI-Enhancement: + Patent-Aktivität + Export-Wachstum + Mitarbeiter-LinkedIn-Trends
+Output: 15 "Hidden Champions" mit Investment-Readiness-Score
+Zeit: 15 Minuten statt 2 Wochen manuell
+```
 
-#### Automated Report Generation
+#### 2. Information Overload → Intelligent Document Processing
 
-**OpenAI "Deep Research" Example**
-- **Capability**: 3500-Wort Research-Bericht in 5 Minuten
-- **Source Integration**: 19 verschiedene Web-Quellen automatisch
-- **Bank Analysis**: Vollständiger Quarterly-Commentary automatisch generiert
-- **Human Validation**: KI-Draft als Analyst-Ausgangspunkt
+**Das Problem**: Analysten ertrinken in Dokumenten - Geschäftsberichte, News, Calls, Ad-hoc Meldungen
 
-**Production Implementation**
-- **Draft Generation**: Firmenprofil, SWOT-Analysis, Financial Commentary
-- **Consistency Checking**: Multi-Report Fact-Verification
-- **Style Adaptation**: Bank-spezifische Tone-of-Voice Integration
-- **Scalability**: Mehr Coverage mit gleicher Analyst-Kapazität
+**KI-Lösung**: NLP-Enhanced Information Extraction
+- **Document Summarization**: Kernaussagen aus 100-seitigen Reports in 2 Minuten
+- **Change Detection**: "Was ist neu vs. Vorquartal?" automatisch identifiziert
+- **Sentiment Tracking**: Management-Ton quantifiziert über Zeit-Horizonte
+- **Key Metrics Extraction**: Automatische KPI-Tabellen aus unstrukturierten Texten
+
+**Konkreter Use Case: Quarterly Earnings Analysis**
+```
+Traditionell: 4-6 Stunden Analyst-Zeit für Call-Transcript + Report
+Mit KI: 10 Minuten für vollständigen Earnings-Review
+Qualität: Alle relevanten Punkte, keine Oversight, Quellenverweise
+Skalierung: 50 Companies statt 10 parallel bearbeitbar
+```
+
+#### 3. Zeitdruck Earnings Season → Real-time Analysis Generation
+
+**Das Problem**: Earnings Season = 6 Wochen Chaos, 200+ Companies reporten gleichzeitig
+
+**KI-Lösung**: Automated Report Generation & Real-time Processing
+- **Live Earnings Analysis**: Während Conference Call bereits Highlights generieren
+- **Instant Peer Comparison**: Sofortige Einordnung vs. Sector/Competitors
+- **Automated First Drafts**: 3500-Wort Reports in 5 Minuten (OpenAI Beispiel)
+- **Multi-language Output**: Deutsch/Englisch parallel für internationale Kunden
+
+**Konkreter Use Case: DAX Earnings Coverage**
+```
+Challenge: 40 DAX Unternehmen berichten in 3 Wochen
+KI-Solution: Parallel Processing aller Calls + Reports
+Output: Same-day Commentary für alle 40 Companies
+Analyst Role: Strategy/Interpretation statt Data-Gathering
+```
+
+#### 4. Kostendruck → Workflow-Automatisierung
+
+**Das Problem**: Research-Teams 20% kleiner seit MiFID II, gleicher Coverage-Anspruch
+
+**KI-Lösung**: End-to-End Workflow Enhancement
+- **Research Pipeline**: Von Target-ID bis Report-Distribution automatisiert
+- **Quality Assurance**: Automated Fact-Checking und Consistency-Validation
+- **Client Personalization**: Individual Research-Feeds based auf Portfolio
+- **Performance Analytics**: ML-Enhanced Research-Impact-Messung
+
+**ROI-Metriken aus der Praxis**:
+- **Marvin Labs**: 25% Kostenreduktion Junior Analysts, 20% Overall Research Costs
+- **Coverage Expansion**: +50% mehr Unternehmen bei gleicher Team-Größe  
+- **Time-to-Market**: Reports 80% schneller bei höherer Consistency
+- **Client Satisfaction**: Personalized Content → +40% Engagement Rates
+
+#### Research-Workflow Integration
+
+```mermaid
+sequenceDiagram
+    participant P as Problem Recognition
+    participant AI as KI-System
+    participant A as Analyst
+    participant C as Client
+
+    P->>AI: Market signal/trigger
+    AI->>AI: Automated screening & analysis
+    AI->>A: Prioritized insights + draft
+    A->>A: Strategic interpretation
+    A->>C: Refined recommendation
+    C->>AI: Feedback for learning
+    AI->>P: Improved pattern recognition
+```
+
+**Hybrid Excellence**: KI übernimmt Routine-Intelligence, Analyst fokussiert auf Strategy, Judgment, Client-Relationships
 
 ### Natural Language Processing & Large Language Models
 
