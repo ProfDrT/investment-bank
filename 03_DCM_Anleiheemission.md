@@ -159,4 +159,8 @@ flowchart LR
 
 - Termsheet • Docs/Prospekt • Rating (optional) • Marketing • Bookbuilding • Zuteilung • Settlement • Covenant-Plan.
 
-> Zurück zur Übersicht: [Kernprozesse_Investmentbank_Mittelstand.md](./Kernprozesse_Investmentbank_Mittelstand.md)
+## Navigation
+
+- [← ECM - IPO](02_ECM_IPO.md) | [Übersicht](Kernprozesse_Investmentbank_Mittelstand.md) | [→ Secondary](04_ECM_Kapitalerhoehung_Secondary.md)
+- [Corporate Finance](01_Corporate_Finance_MA_Finanzierung.md) | [ECM - IPO](02_ECM_IPO.md) | [DCM](03_DCM_Anleiheemission.md) | [Secondary](04_ECM_Kapitalerhoehung_Secondary.md) | [Sales & Trading](05_Sales_Trading_Designated_Sponsoring.md) | [Research](06_Research.md) | [Risk & Compliance](07_Risk_Compliance.md) | [Operations & IT](08_Operations_IT.md)
+- [Templates](templates/) | [README](README.md)
