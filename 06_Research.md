@@ -203,6 +203,13 @@ flowchart LR
 - Kundenreichweite/Engagement: Öffnungs-/Klickrate, Event‑Teilnahmen.
 - Coverage Breite/Tiefe: #Unternehmen, #Updates pro Jahr, thematische Notes.
 
+## Research-Detailanalysen
+
+### Fachbereiche (Detail-Dokumente)
+- **Public Equities Research**: [06a_Research_Public_Equities.md](06a_Research_Public_Equities.md) – Small-/Mid-Cap-Aktienanalyse
+- **Private Company Research**: [06b_Research_Private_Companies.md](06b_Research_Private_Companies.md) – M&A/PE-Origination  
+- **KI & Technologie**: [06c_Research_KI_Technology.md](06c_Research_KI_Technology.md) – Automatisierung und Analytics
+
 ## Vorlagen/Artefakte
 
 - Research Report Outline: [templates/Research_Report_Outline.md](templates/Research_Report_Outline.md)
