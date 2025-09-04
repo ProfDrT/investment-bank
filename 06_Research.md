@@ -205,12 +205,12 @@ flowchart LR
 
 ## Vorlagen/Artefakte
 
-- Research Report Outline: `templates/Research_Report_Outline.md`
-- Rating Framework: `templates/Rating_Framework.md`
-- Estimate‑Change Protocol: `templates/Estimate_Change_Protocol.md`
-- Disclosure Checklist: `templates/Disclosure_Checklist.md`
-- Styleguide Summary: `templates/Styleguide_Summary.md`
-- Model Standards: `templates/Model_Standards.md`
+- Research Report Outline: [templates/Research_Report_Outline.md](templates/Research_Report_Outline.md)
+- Rating Framework: [templates/Rating_Framework.md](templates/Rating_Framework.md)
+- Estimate‑Change Protocol: [templates/Estimate_Change_Protocol.md](templates/Estimate_Change_Protocol.md)
+- Disclosure Checklist: [templates/Disclosure_Checklist.md](templates/Disclosure_Checklist.md)
+- Styleguide Summary: [templates/Styleguide_Summary.md](templates/Styleguide_Summary.md)
+- Model Standards: [templates/Model_Standards.md](templates/Model_Standards.md)
  
 
 > Zurück zur Übersicht: [Kernprozesse_Investmentbank_Mittelstand.md](./Kernprozesse_Investmentbank_Mittelstand.md)

@@ -1,4 +1,4 @@
-# investment-bank
+# Executive Overview
 
 ## Executive Overview – Kernprozesse Investmentbank (Mittelstand)
 
@@ -42,11 +42,11 @@ flowchart TB
 
 ## Navigation
 
-- Corporate Finance – M&A/Finanzierung: `01_Corporate_Finance_MA_Finanzierung.md`
-- ECM – IPO: `02_ECM_IPO.md`
-- DCM – Anleiheemission: `03_DCM_Anleiheemission.md`
-- ECM – Kapitalerhöhungen & Secondary: `04_ECM_Kapitalerhoehung_Secondary.md`
-- Sales & Trading inkl. DS: `05_Sales_Trading_Designated_Sponsoring.md`
-- Research: `06_Research.md`
-- Risk & Compliance: `07_Risk_Compliance.md`
-- Operations & IT: `08_Operations_IT.md`
+- Corporate Finance – M&A/Finanzierung: [01_Corporate_Finance_MA_Finanzierung.md](01_Corporate_Finance_MA_Finanzierung.md)
+- ECM – IPO: [02_ECM_IPO.md](02_ECM_IPO.md)
+- DCM – Anleiheemission: [03_DCM_Anleiheemission.md](03_DCM_Anleiheemission.md)
+- ECM – Kapitalerhöhungen & Secondary: [04_ECM_Kapitalerhoehung_Secondary.md](04_ECM_Kapitalerhoehung_Secondary.md)
+- Sales & Trading inkl. DS: [05_Sales_Trading_Designated_Sponsoring.md](05_Sales_Trading_Designated_Sponsoring.md)
+- Research: [06_Research.md](06_Research.md)
+- Risk & Compliance: [07_Risk_Compliance.md](07_Risk_Compliance.md)
+- Operations & IT: [08_Operations_IT.md](08_Operations_IT.md)
