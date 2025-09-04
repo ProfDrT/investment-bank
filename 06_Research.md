@@ -209,6 +209,7 @@ flowchart LR
 - **Public Equities Research**: [06a_Research_Public_Equities.md](06a_Research_Public_Equities.md) – Small-/Mid-Cap-Aktienanalyse
 - **Private Company Research**: [06b_Research_Private_Companies.md](06b_Research_Private_Companies.md) – M&A/PE-Origination  
 - **KI & Technologie**: [06c_Research_KI_Technology.md](06c_Research_KI_Technology.md) – Automatisierung und Analytics
+- **Marktakteure & Innovation**: [06d_Research_Market_Analysis.md](06d_Research_Market_Analysis.md) – Deutsche Research-Landschaft & KI-Trends
 
 ## Vorlagen/Artefakte
 
