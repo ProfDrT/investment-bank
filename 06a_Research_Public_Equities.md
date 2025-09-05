@@ -1249,37 +1249,37 @@ graph LR
 
 ## MVP-Roadmap & Implementierungsstrategie
 
-### Phasenplan für 16-Wochen-MVP (Q1-Q2 2024)
+### Phasenplan für 16-Wochen-MVP (Q4 2025 - Q1 2026)
 
 ```mermaid
 gantt
     title MVP Development Timeline - Public Equities Research Automation
     dateFormat  YYYY-MM-DD
     section Phase 1: Foundation
-    Data Infrastructure Setup    :p1, 2024-01-08, 2w
-    Sourcing Engine Development  :p2, 2024-01-15, 3w
-    Document Parser Implementation :p3, 2024-01-22, 3w
+    Data Infrastructure Setup    :p1, 2025-10-14, 2w
+    Sourcing Engine Development  :p2, 2025-10-21, 3w
+    Document Parser Implementation :p3, 2025-10-28, 3w
     
     section Phase 2: NLP Core
-    Entity Resolution Engine     :p4, 2024-02-05, 2w
-    KPI Extraction Pipeline      :p5, 2024-02-12, 3w
-    Guidance Detection System    :p6, 2024-02-19, 2w
-    Sentiment Analysis Model     :p7, 2024-02-26, 2w
+    Entity Resolution Engine     :p4, 2025-11-11, 2w
+    KPI Extraction Pipeline      :p5, 2025-11-18, 3w
+    Guidance Detection System    :p6, 2025-11-25, 2w
+    Sentiment Analysis Model     :p7, 2025-12-02, 2w
     
     section Phase 3: Analytics
-    Feature Store Implementation :p8, 2024-03-04, 3w
-    Forecasting Engine (v1)      :p9, 2024-03-11, 3w
-    Valuation Engine (DCF/Multiples) :p10, 2024-03-18, 3w
+    Feature Store Implementation :p8, 2025-12-09, 3w
+    Forecasting Engine (v1)      :p9, 2025-12-16, 3w
+    Valuation Engine (DCF/Multiples) :p10, 2025-12-23, 3w
     
     section Phase 4: User Interface
-    Analyst Workbench (MVP)      :p11, 2024-04-01, 3w
-    Report Generator (Templates) :p12, 2024-04-08, 3w
-    Distribution System          :p13, 2024-04-15, 2w
+    Analyst Workbench (MVP)      :p11, 2026-01-13, 3w
+    Report Generator (Templates) :p12, 2026-01-20, 3w
+    Distribution System          :p13, 2026-01-27, 2w
     
     section Phase 5: Integration
-    End-to-End Testing           :p14, 2024-04-22, 2w
-    Performance Optimization     :p15, 2024-04-29, 1w
-    MVP Release                  :milestone, m1, 2024-05-06, 1d
+    End-to-End Testing           :p14, 2026-02-03, 2w
+    Performance Optimization     :p15, 2026-02-10, 1w
+    MVP Release                  :milestone, m1, 2026-02-17, 1d
 ```
 
 ### MVP-Scope Definition (Minimum Viable Product)
@@ -1392,7 +1392,7 @@ Scalability_Proof:
 - [ ] **Compliance**: BaFin-Compliance-Officer Sign-off
 - [ ] **Pilot Testing**: 4-Week-Pilot mit 5 internen Analysten
 
-### Phase-2-Erweiterungen (Q3-Q4 2024)
+### Phase-2-Erweiterungen (Q2-Q3 2026)
 
 #### Advanced Features Roadmap
 1. **Multi-Language Support**
