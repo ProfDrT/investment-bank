@@ -410,18 +410,18 @@ flowchart TD
 - **New Business Models**: AI-as-a-Service für kleinere Research-Boutiques
 - **Regulatory Adaptation**: Compliance-Technology wird Standard-Requirement
 
-### Implementation Roadmap
+### Technologie-Entwicklungstrends
 
-| Zeitrahmen | Technology Focus | Market Impact |
-|------------|------------------|---------------|
-| **2024-2025** | NLP/LLM Integration | Efficiency Gains 20-40% |
-| **2025-2026** | Advanced Automation | Coverage Expansion 50%+ |  
-| **2026-2027** | AI-Human Hybrid Optimization | New Business Models |
-| **2027+** | Fully Integrated AI Research | Democratized Access |
+| Phase | Technology Focus | Market Impact |
+|-------|------------------|---------------|
+| **Nahe Zukunft** | NLP/LLM Integration | Effizienzsteigerungen |
+| **Mittelfristig** | Advanced Automation | Coverage-Erweiterung |  
+| **Langfristig** | AI-Human Hybrid Optimization | New Business Models |
+| **Vision** | Fully Integrated AI Research | Democratized Access |
 
 ## Navigation
 
-- [← KI im Research](06c_Research_KI_Technology.md) | [Research Übersicht](06_Research.md) | [→ KI-Entwicklungen](06e_Research_KI_Entwicklungen.md)
+- [← KI im Research](06c_Research_KI_Technology.md) | [Research Übersicht](06_Research.md)
 - [Corporate Finance](01_Corporate_Finance_MA_Finanzierung.md) | [ECM - IPO](02_ECM_IPO.md) | [DCM](03_DCM_Anleiheemission.md) | [Secondary](04_ECM_Kapitalerhoehung_Secondary.md) | [Sales & Trading](05_Sales_Trading_Designated_Sponsoring.md) | [Research](06_Research.md) | [Risk & Compliance](07_Risk_Compliance.md) | [Operations & IT](08_Operations_IT.md)
 - [Templates](templates/) | [README](README.md)
 
