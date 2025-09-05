@@ -1434,37 +1434,54 @@ graph LR
 
 ## MVP-Roadmap & Implementierungsstrategie
 
-### Phasenplan für 16-Wochen-MVP (Q4 2025 - Q1 2026)
+### Phasenplan für MVP-Entwicklung
 
 ```mermaid
-gantt
-    title MVP Development Timeline - Public Equities Research Automation
-    dateFormat  YYYY-MM-DD
-    section Phase 1: Foundation
-    Data Infrastructure Setup    :p1, 2025-10-14, 2w
-    Sourcing Engine Development  :p2, 2025-10-21, 3w
-    Document Parser Implementation :p3, 2025-10-28, 3w
+flowchart TD
+    subgraph "Phase 1: Foundation"
+        A1[Data Infrastructure Setup]
+        A2[Mass Sourcing Engine Development]
+        A3[Document Processing Pipeline]
+    end
     
-    section Phase 2: NLP Core
-    Entity Resolution Engine     :p4, 2025-11-11, 2w
-    KPI Extraction Pipeline      :p5, 2025-11-18, 3w
-    Guidance Detection System    :p6, 2025-11-25, 2w
-    Sentiment Analysis Model     :p7, 2025-12-02, 2w
+    subgraph "Phase 2: Intelligence Core"
+        B1[Opportunity Detection Engine]
+        B2[Financial Health Analytics]
+        B3[Market Surveillance System]
+        B4[Entity Resolution & Normalization]
+    end
     
-    section Phase 3: Analytics
-    Feature Store Implementation :p8, 2025-12-09, 3w
-    Forecasting Engine (v1)      :p9, 2025-12-16, 3w
-    Valuation Engine (DCF/Multiples) :p10, 2025-12-23, 3w
+    subgraph "Phase 3: Investor Intelligence"
+        C1[Investor Database Implementation]
+        C2[Preference Profiling Engine]
+        C3[Historical Deal Tracking]
+        C4[Portfolio Analysis System]
+    end
     
-    section Phase 4: User Interface
-    Analyst Workbench (MVP)      :p11, 2026-01-13, 3w
-    Report Generator (Templates) :p12, 2026-01-20, 3w
-    Distribution System          :p13, 2026-01-27, 2w
+    subgraph "Phase 4: Matching & Outreach"
+        D1[Company-Investor Matching Engine]
+        D2[Personalized Outreach Generator]
+        D3[Campaign Management System]
+        D4[Response Tracking & Analytics]
+    end
     
-    section Phase 5: Integration
-    End-to-End Testing           :p14, 2026-02-03, 2w
-    Performance Optimization     :p15, 2026-02-10, 1w
-    MVP Release                  :milestone, m1, 2026-02-17, 1d
+    subgraph "Phase 5: Integration & Launch"
+        E1[Deal Pipeline Management]
+        E2[Market Intelligence Dashboard]
+        E3[Performance Analytics]
+        E4[MVP Release]
+    end
+    
+    A1 --> B1
+    A2 --> B2
+    A3 --> B3
+    B1 --> C1
+    B2 --> C2
+    C1 --> D1
+    C2 --> D2
+    D1 --> E1
+    D2 --> E2
+    E1 --> E4
 ```
 
 ### MVP-Scope Definition (Minimum Viable Product)
@@ -1583,7 +1600,7 @@ Scalability_Design:
 - [ ] **Compliance**: BaFin-Compliance-Officer Sign-off
 - [ ] **Pilot Testing**: 4-Week-Pilot mit 5 internen Analysten
 
-### Phase-2-Erweiterungen: EU-Expansion (Q2-Q3 2026)
+### Phase-2-Erweiterungen: EU-Expansion
 
 #### Advanced Features Roadmap - Europaweite Skalierung
 1. **Multi-Country & Multi-Language Support**
@@ -1671,7 +1688,7 @@ graph TB
 
 ## Geografische Expansionsstrategie: Deutschland → EU
 
-### Phase 1: Deutschland-Fokus (v1, Q4 2025 - Q1 2026)
+### Phase 1: Deutschland-Fokus (v1)
 **Rationale**: Lokale Expertise maximieren, regulatorische Komplexität minimieren
 - **Markt-Fokus**: Deutschland (MDAX, SDAX, Scale, m:access)
 - **Sprache**: Primär Deutsch, sekundär Englisch
@@ -1680,15 +1697,15 @@ graph TB
 - **Zielgruppe**: Deutsche institutionelle Investoren, Family Offices
 - **Ziele**: Abdeckung deutscher Small/Mid-Caps, SDAX-Fokus
 
-### Phase 2: EU-Expansion (v2, Q2 2026 - Q4 2026)
+### Phase 2: EU-Expansion (v2)
 **Rationale**: Bewährte Technologie auf ähnliche EU-Märkte skalieren
 ```mermaid
 graph LR
-    A[Deutschland v1<br/>Etabliert] --> B[Frankreich<br/>Q2 2026]
-    A --> C[Italien<br/>Q2 2026]
-    A --> D[Niederlande<br/>Q3 2026]
-    A --> E[Österreich<br/>Q3 2026]
-    A --> F[Schweiz<br/>Q4 2026]
+    A[Deutschland v1<br/>Etabliert] --> B[Frankreich]
+    A --> C[Italien]
+    A --> D[Niederlande]
+    A --> E[Österreich]
+    A --> F[Schweiz]
     
     B --> G[EU-weite<br/>Peer-Vergleiche]
     C --> G
@@ -1698,11 +1715,11 @@ graph LR
 ```
 
 **EU-Erweiterungs-Roadmap**:
-1. **Frankreich** (Q2 2026): Euronext Paris Small/Mid-Caps, AMF-Integration
-2. **Italien** (Q2 2026): Borsa Italiana STAR/AIM, CONSOB-Feeds
-3. **Niederlande** (Q3 2026): Euronext Amsterdam, AFM-Regulierung
-4. **Österreich** (Q3 2026): Wiener Börse, FMA-Compliance
-5. **Schweiz** (Q4 2026): SIX Swiss Exchange, FINMA-Integration
+1. **Frankreich**: Euronext Paris Small/Mid-Caps, AMF-Integration
+2. **Italien**: Borsa Italiana STAR/AIM, CONSOB-Feeds
+3. **Niederlande**: Euronext Amsterdam, AFM-Regulierung
+4. **Österreich**: Wiener Börse, FMA-Compliance
+5. **Schweiz**: SIX Swiss Exchange, FINMA-Integration
 
 **Technische EU-Skalierung**:
 - Multi-Language NLP (DE → FR, IT, NL, EN)
