@@ -17,7 +17,7 @@
 - Plattformbetrieb: Börsen-/Marktdaten-Anbindungen, OMS/EMS, Datenplattform, Security.
 - Change/Release: SDLC/DevOps, Bereitstellung, Notfall-/BCM, Outsourcing-Steuerung.
 
-## Post-Trade-Prozess (Flow)
+## Post-Trade-Prozess
 
 ```mermaid
 flowchart TB
@@ -88,7 +88,7 @@ erDiagram
     COUNTERPARTY ||--o{ ACCOUNT : holds
 ```
 
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR

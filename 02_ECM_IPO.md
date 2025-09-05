@@ -67,7 +67,7 @@ sequenceDiagram
     Emittent-->>Syndikat: Finalpreis/Allokation bestätigen
 ```
 
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR

@@ -19,7 +19,7 @@
 - Berichterstellung & Freigaben: Drafting, Peer-Review, Compliance-Check, Publikation.
 - Distribution & Feedback: Kundenversand, Sales-Briefing, Events; Anpassungen.
 
-## Research-Zyklus (Flow)
+## Research-Zyklus
 
 ```mermaid
 flowchart TB
@@ -31,7 +31,7 @@ flowchart TB
   U1 --> Up["Updates/Ad-hoc"]
 ```
 
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR

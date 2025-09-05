@@ -58,7 +58,7 @@ sequenceDiagram
 | Book/Pricing | Fehlpreis | Daily Book Calls, Szenarien | Call‑Notes, Pricing Memo |
 | Settlement | Fails/Strafen | Pre‑Matching, Cut‑off‑Kontrollen | Matching‑Logs, CSDR‑Reports |
 
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR

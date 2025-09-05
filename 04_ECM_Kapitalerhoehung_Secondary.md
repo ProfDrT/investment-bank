@@ -65,7 +65,7 @@ sequenceDiagram
 - MAR/Insider: Wall‑Crossing‑Skripte, Ad‑hoc‑Prüfung, Empfängerkreise.
 - Allocation: Kriterien/Begründungen dokumentieren, Compliance im Meeting.
 - Kommunikation: Kurzfenster, abgestimmte Messaging, Protokolle.
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR

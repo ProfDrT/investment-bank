@@ -74,7 +74,7 @@ sequenceDiagram
 - Policies: KYC/AML, Conflicts of Interest, Surveillance, Limit Framework.
 - Committees: Neue Produkte, Risk Committee, Compliance Committee.
 - Evidenz: Audit‑Trails, SoD, Data‑Lineage.
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR

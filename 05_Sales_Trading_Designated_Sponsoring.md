@@ -11,7 +11,7 @@
 - Designated Sponsoring: Quotes stellen, Mindestpräsenz/Size, Qualitätssicherung.
 - Post-Trade: Bestätigung, Clearing/Settlement, Reconciliation, Reporting.
 
-## Ausführung & Designated Sponsoring (Flow)
+## Ausführung & Designated Sponsoring
 
 ```mermaid
 flowchart LR
@@ -80,7 +80,7 @@ sequenceDiagram
 - Best‑Execution Policy (RTS 27/28), Venue‑Selektion, jährliche Reviews.
 - DS‑Verträge/Parameter, Abwesenheitsregeln, Eskalationswege.
 - Kommunikation/Chinesische Mauer, Aufzeichnungs‑/Dokumentationspflichten.
-## Rollen & Verantwortlichkeiten (Swimlane)
+## Rollen & Verantwortlichkeiten
 
 ```mermaid
 flowchart LR
