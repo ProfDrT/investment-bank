@@ -6,67 +6,79 @@
 
 ## End-to-End Prozessarchitektur (Automatisierte Research-Pipeline)
 
-### Vollautomatisierte Prozesskette für Small & Mid Caps (Deutschland v1, EU v2)
+### Proaktive Market Intelligence & Opportunity Detection (Deutschland v1, EU v2)
 
 ```mermaid
 flowchart TD
-  A[Coverage Policy & Universe Definition] --> B[Sourcing Engine]
-  B --> C[Ingestion Orchestrator]
-  C --> D[Parsers: PDF/XBRL/HTML/Audio]
-  D --> E[Entity Resolution & Normalizer]
-  E --> F[NLP Pipeline: NER • KPI-Extract • Guidance • Sentiment]
-  F --> G[Feature Store - Time Series & Facts]
-  G <-->|market data| M[Market Data Adapter - Bloomberg/FactSet]
-  G <-->|consensus| N[Consensus Data Adapter - I/B/E/S]
-  G <-->|alt data| O[Alternative Data - Web/Social/Jobs]
-  G --> H[Forecasting Engine - ML & Traditional]
-  H --> I[Valuation Engine - DCF/Multiples/Scenarios]
-  I --> J[Analyst Workbench - Review/Override/Notes]
-  J --> K[Compliance Engine - MiFID II/MAR/Disclosures]
-  K --> L[Report Generator - PDF/HTML/Portal]
-  L --> P[Distribution Hub - CRM/Alerts/Portal/Email]
-  P --> Q[Engagement Analytics & Feedback]
-  Q --> R[Backtesting & Model Performance Monitoring]
+  A[Small-Cap Universe Monitoring - Alle öffentlichen Unternehmen] --> B[Mass Data Ingestion Engine]
+  B --> C[Document Processing Pipeline]
+  C --> D[Financial Health Analytics - KI-basierte Früherkennung]
+  D --> E[Opportunity Detection Engine]
+  E --> F[Kapitalbedarf-Prognose • M&A-Signale • Wachstumsfinanzierung]
+  F --> G[Company Intelligence Profiles]
+  
+  G --> H[Investor Preference Engine]
+  H --> I[Dynamic Investor Database - Präferenzen • Track Record • Mandate]
+  I --> J[Automated Matching & Scoring]
+  J --> K[Personalized Outreach Generator]
+  K --> L[Multi-Channel Campaign Engine]
+  
+  L --> M[Company Outreach - Individualisierte Ansprachen]
+  L --> N[Investor Outreach - Opportunity Alerts]
+  
+  M --> O[Deal Pipeline Management]
+  N --> O
+  O --> P[Performance Analytics & Learning]
+  P --> D
+  
+  subgraph "Proactive Intelligence Sources"
+    Q[Alle deutschen Small-Caps - MDAX/SDAX/Scale]
+    R[Regulatory Filings - Automated Analysis]
+    S[Financial Statements - Pattern Recognition]
+    T[Management Commentary - Sentiment & Signals]
+    U[Alternative Data - Hiring, Capex, Market Activity]
+  end
+  
+  Q --> B
   R --> B
+  S --> B
+  T --> B
+  U --> B
   
-  subgraph "Event-Driven Architecture"
-    S[Event Bus - Kafka/Pub-Sub] -.-> B
-    S -.-> C
-    S -.-> F
-    S -.-> H
-    S -.-> L
+  subgraph "Investor Intelligence"
+    V[Fund Mandates & Strategies]
+    W[Historical Deal Preferences]
+    X[Current Portfolio Analysis]
+    Y[Market Activity Tracking]
   end
   
-  subgraph "External Integrations"
-    T[Bundesanzeiger API]
-    U[IR Website Crawlers]
-    V[Regulatory Feeds - BaFin/ESMA]
-    W[Conference Call Transcripts]
-  end
-  
-  T --> C
-  U --> C
-  V --> C
-  W --> C
+  V --> I
+  W --> I
+  X --> I
+  Y --> I
 ```
 
 ### Detaillierte Subprozess-Spezifikationen
 
-#### 1. Coverage Policy & Universe (Deutschland-Fokus v1)
-**Ziel**: Klare Definition der deutschen Small-/Mid-Caps mit automatisierter Priorisierung
-- **Inputs Deutschland v1**: 
-  - Marktkapitalisierung (€50M - €2Bn)
-  - Börsen-Segmente: MDAX, SDAX, Scale, m:access
-  - Free Float (>25%), Handelsliquidität (Ø tägl. Volumen)
-  - Sektorverteilung (Technology, Healthcare, Industrial, Consumer)
-  - Investorennachfrage deutscher Institutioneller
-  - BaFin-Regulierungsstatus, HGB/IFRS-Reporting
-- **Automatisierung**: 
-  - Monatlicher Priority-Score: `(DE_Liquidity × 0.3) + (DE_Investor_Interest × 0.4) + (German_News_Frequency × 0.2) + (DGAP_Event_Density × 0.1)`
-  - Coverage-Lifecycle: `Prospect → Initiate → Maintain → Suspend`
-  - **v2 EU-Expansion**: Erweitert um französische, italienische, niederländische Markets
-- **Output**: `coverage_universe_de` (50+ deutsche Firmen, P1-P3 Priorität)
-- **Owner**: Head of German Research + Research Operations
+#### 1. Vollständige Small-Cap-Monitoring (Deutschland-First)
+**Ziel**: Kontinuierliche Überwachung ALLER deutschen Small-Caps für proaktive Opportunity Detection
+- **Vollabdeckung Deutschland v1**: 
+  - **Alle börsennotierten Unternehmen**: MDAX, SDAX, Scale, m:access, General Standard
+  - **Marktkapitalisierung**: €10M - €2Bn (keine Einschränkungen)
+  - **Sektorübergreifend**: Technology, Healthcare, Industrial, Consumer, Services, Energy
+  - **Regulatorischer Status**: Alle BaFin-regulierten Emittenten
+  - **Reporting-Standards**: HGB und IFRS-Unternehmen
+- **Automated Intelligence Scoring**: 
+  - `Financial_Health_Score`: Liquidität, Verschuldung, Cashflow-Trends
+  - `Growth_Opportunity_Score`: Umsatzwachstum, Margenentwicklung, Investitionen
+  - `Capital_Need_Probability`: Working Capital, Capex-Pläne, Refinanzierungszyklen
+  - `M&A_Attractiveness`: Bewertungsmultiples, strategische Assets, Marktposition
+- **Continuous Monitoring**: 
+  - **Real-time**: DGAP-Meldungen, Kursbewegungen, Volumina
+  - **Weekly**: Quartalszahlen-Analyse, Management-Kommentare
+  - **Monthly**: Peer-Vergleiche, Branchentrends, Investoren-Aktivität
+- **Output**: `complete_small_cap_universe_de` (500+ Unternehmen, kontinuierlich aktualisiert)
+- **Owner**: Market Intelligence Team + Data Science
 
 #### 2. Sourcing Engine (Deutschland-First Strategie)
 **Ziel**: Vollautomatische Erfassung deutscher Unternehmensinfo mit EU-Skalierbarkeit
@@ -99,24 +111,24 @@ flowchart TD
 - **Section Mapping**: MD&A, Outlook, Risk Factors, Financial Statements
 - **Output**: `doc_structure` mit semantischen Blöcken
 
-#### 4. Advanced NLP Pipeline (KI-Kern)
-**Ziel**: Automatische Extraktion von Investment-relevanten Insights
-- **Module**:
-  - **Named Entity Recognition**: Custom FinBERT für Deutsche Texte
-  - **KPI-Extraktion**: ML-Table-Detector + Rule-based Validation
-    - Standardisierte Metriken: Revenue, EBITDA, Net Income, Margins
-    - Temporal Mapping: Q1/Q2/Q3/Q4, FY-1/FY/FY+1
-    - Currency/Unit Normalization: TEUR → EUR, Mio → Actual Values
-  - **Guidance-Tracker**: 
-    - Future-tense Detection via Dependency Parsing
-    - Target Range Extraction: "erwarten 15-18% Wachstum" → [0.15, 0.18]
-    - Confidence Scoring via Hedge Word Analysis
-  - **Sentiment Analysis**: 
-    - Section-level (Overall, Outlook, Risk)
-    - Management Q&A Tonality (Defensive/Confident/Uncertain)
-    - Year-over-Year Sentiment Delta
-- **Quality Control**: Confidence Thresholds für Human Review
-- **Output**: `kpi_fact`, `guidance_item`, `sentiment_score`, `change_detection`
+#### 4. Opportunity Detection Engine (KI-Kern für Business Development)
+**Ziel**: Automatische Erkennung von Kapitalmarkt-Opportunities und Finanzierungsbedarfen
+- **Financial Distress Signals**:
+  - **Liquiditäts-Indikatoren**: Working Capital Ratios, Cash-Burn-Rate, Kreditlinien-Auslastung
+  - **Refinanzierungs-Zyklen**: Anleihen-/Kreditfälligkeiten, Covenant-Risiken
+  - **Operational Stress**: Margen-Erosion, Umsatzrückgänge, Restrukturierungs-Erwähnungen
+- **Growth Capital Opportunities**:
+  - **Expansions-Signale**: Neue Standorte, Akquisitionspläne, R&D-Intensivierung
+  - **Capex-Trends**: Investitions-Hochlauf, Modernisierungs-Programme
+  - **Market Share Gains**: Umsatzwachstum über Peer-Durchschnitt
+- **M&A Attractiveness Scoring**:
+  - **Strategic Assets**: Marktführerschaft, IP-Portfolio, regulatorische Zulassungen
+  - **Valuation Gaps**: Peer-Multiple-Discount, Sum-of-Parts-Aufschlag
+  - **Management Signale**: Strategische Reviews, Spin-off-Diskussionen
+- **ESG Transition Needs**:
+  - **Nachhaltigkeits-Capex**: Green-Transition-Investments, CSRD-Compliance
+  - **Regulatorische Anpassungen**: EU-Taxonomie-Alignment, Scope-3-Reporting
+- **Output**: `opportunity_alerts`, `capital_need_forecast`, `ma_target_scores`, `contact_priorities`
 
 #### 5. Feature Store (Unified Data Layer)
 **Ziel**: Single Source of Truth für alle analytischen Features
@@ -190,23 +202,26 @@ market_data (
 - **Scenario Framework**: Base/Bear/Bull mit Probability Weighting
 - **Output**: Fair Value Distribution (P25/P50/P75) mit Drivers
 
-#### 8. Analyst Workbench (Human-in-the-Loop Interface)
-**Ziel**: Effiziente Review und Override-Funktionalität
-- **Dashboard Features**:
-  - **Diff-Viewer**: Guidance Changes Side-by-Side
-  - **KPI Audit Trail**: Source-to-Report Traceability
-  - **SHAP Explainer**: ML Decision Transparency
-  - **Peer Comparison**: Interactive Scatter Plots
-  - **Scenario Sliders**: Real-time Valuation Updates
-- **Task Management**: 
-  - Priority Inbox für Low-Confidence Extractions
-  - Anomaly Alerts (Large Moves, Consensus Gaps)
-  - Review Queue mit SLA Tracking
-- **Knowledge Capture**:
-  - Investment Thesis Templates
-  - Risk Assessment Framework
-  - Catalyst Tracking
-  - Meeting Notes Integration
+#### 8. Investor Intelligence & Matching Engine
+**Ziel**: Dynamische Investor-Datenbank mit Präferenz-Profiling für automatisierte Matches
+- **Investor Profiling**:
+  - **Mandate Analysis**: Fondsstrategien, Sektorpräferenzen, Ticket-Größen, geografischer Fokus
+  - **Historical Deal Tracking**: Vergangene Investments, Performance, Holding-Perioden
+  - **Current Portfolio Analysis**: Aktuelle Positionen, Sektor-Allokation, Liquidität
+  - **Investment Thesis Extraction**: NLP-basierte Analyse von Investor-Communications
+- **Dynamic Preference Updates**:
+  - **Real-time Activity Monitoring**: Neue Investments, Exits, Portfolio-Shifts
+  - **Conference & Roadshow Intelligence**: IR-Event-Teilnahmen, Management-Meetings
+  - **Market Commentary Analysis**: Investor-Calls, Research-Notes, Public Statements
+- **Automated Matching & Scoring**:
+  - **Company-Investor-Fit-Score**: Sektor, Size, Growth Stage, ESG-Alignment
+  - **Timing-Optimierung**: Investor-Liquidität, Fund-Lifecycle, Market-Conditions
+  - **Competitive Intelligence**: Peer-Investments, Mandate-Überschneidungen
+- **Personalized Outreach Generation**:
+  - **Individualisierte Pitches**: Investor-spezifische Value Propositions
+  - **Optimal Timing**: Calendar-Integration, Market-Event-Koordination
+  - **Channel Selection**: E-Mail, Telefon, Events, persönliche Kontakte
+- **Output**: `investor_profiles`, `match_scores`, `outreach_campaigns`, `pipeline_tracking`
 
 #### 9. Compliance & Risk Engine
 **Ziel**: Automatisierte MiFID II/MAR Compliance-Checks
@@ -441,6 +456,59 @@ erDiagram
         datetime event_timestamp
         jsonb metadata
     }
+    
+    OPPORTUNITY_ALERT {
+        uuid alert_id PK
+        uuid company_id FK
+        enum opportunity_type
+        enum urgency_level
+        text description
+        jsonb indicators
+        float confidence_score
+        datetime detected_at
+        boolean is_active
+    }
+    
+    INVESTOR {
+        uuid investor_id PK
+        string investor_name
+        enum investor_type
+        jsonb mandate_details
+        jsonb sector_preferences
+        jsonb ticket_size_range
+        datetime last_updated
+    }
+    
+    INVESTOR_PORTFOLIO {
+        uuid portfolio_id PK
+        uuid investor_id FK
+        uuid company_id FK
+        decimal position_size
+        date investment_date
+        boolean is_current
+        text investment_thesis
+    }
+    
+    OPPORTUNITY_MATCH {
+        uuid match_id PK
+        uuid opportunity_id FK
+        uuid investor_id FK
+        float match_score
+        jsonb match_rationale
+        enum outreach_status
+        datetime created_at
+    }
+    
+    OUTREACH_CAMPAIGN {
+        uuid campaign_id PK
+        uuid match_id FK
+        enum campaign_type
+        text personalized_message
+        enum channel
+        datetime scheduled_at
+        enum status
+        jsonb response_tracking
+    }
 
     COMPANY ||--|| SECURITY : "has primary"
     COMPANY ||--o{ SOURCE_DOCUMENT : "publishes"
@@ -450,6 +518,8 @@ erDiagram
     COMPANY ||--o{ FORECAST : "forecasted for"
     COMPANY ||--o{ VALUATION : "valued"
     COMPANY ||--o{ RESEARCH_REPORT : "covered by"
+    COMPANY ||--o{ OPPORTUNITY_ALERT : "triggers opportunities"
+    COMPANY ||--o{ INVESTOR_PORTFOLIO : "held by investors"
     SOURCE_DOCUMENT ||--o{ KPI_FACT : "contains"
     SOURCE_DOCUMENT ||--o{ GUIDANCE : "contains"
     SOURCE_DOCUMENT ||--o{ SENTIMENT : "analyzed for"
@@ -458,6 +528,10 @@ erDiagram
     CLIENT ||--o{ ENTITLEMENT : "has access"
     CLIENT ||--o{ ENGAGEMENT : "engages with"
     RESEARCH_REPORT ||--o{ ENGAGEMENT : "generates"
+    INVESTOR ||--o{ INVESTOR_PORTFOLIO : "maintains positions"
+    INVESTOR ||--o{ OPPORTUNITY_MATCH : "matched with opportunities"
+    OPPORTUNITY_ALERT ||--o{ OPPORTUNITY_MATCH : "generates matches"
+    OPPORTUNITY_MATCH ||--o{ OUTREACH_CAMPAIGN : "triggers outreach"
 ```
 
 ### Event-Driven Architecture & Topic Model
@@ -562,6 +636,36 @@ graph TB
     "html_content": "string",
     "analyst_id": "uuid",
     "distribution_channels": "array[string]"
+  },
+  
+  "opportunity.detected": {
+    "alert_id": "uuid",
+    "company_id": "uuid",
+    "opportunity_type": "enum[capital_need, growth_financing, m&a_target, refinancing]",
+    "urgency_level": "enum[low, medium, high, critical]",
+    "indicators": "array[object]",
+    "confidence_score": "float[0,1]",
+    "estimated_capital_need": "decimal",
+    "timing_window": "string"
+  },
+  
+  "investor.matched": {
+    "match_id": "uuid",
+    "opportunity_id": "uuid", 
+    "investor_id": "uuid",
+    "match_score": "float[0,1]",
+    "match_factors": "array[string]",
+    "recommended_approach": "string",
+    "optimal_timing": "timestamp"
+  },
+  
+  "outreach.initiated": {
+    "campaign_id": "uuid",
+    "match_id": "uuid",
+    "channel": "enum[email, phone, meeting, event]",
+    "personalization_data": "object",
+    "scheduled_at": "timestamp",
+    "expected_response_window": "string"
   }
 }
 ```
@@ -864,7 +968,85 @@ GET /api/v1/analytics/engagement/summary
     }
 ```
 
-#### 9. Compliance & Risk Service
+#### 9. Opportunity Detection & Investor Matching Service
+```typescript
+// Opportunity Detection API
+POST /api/v1/opportunities/scan
+  - Body: { 
+      universe_filter: { sectors[], market_cap_range, regions[] },
+      detection_types: ["capital_need", "growth_financing", "m&a_target"],
+      urgency_threshold: "medium",
+      lookback_period: "6M"
+    }
+  - Response: { 
+      scan_id, 
+      detected_opportunities[], 
+      processing_status,
+      estimated_completion 
+    }
+
+GET /api/v1/opportunities/company/{company_id}
+  - Response: { 
+      current_opportunities[], 
+      historical_opportunities[],
+      opportunity_timeline,
+      confidence_trends 
+    }
+
+POST /api/v1/opportunities/{opportunity_id}/validate
+  - Body: { analyst_assessment, confidence_override, notes }
+  - Response: { updated_opportunity, validation_recorded }
+
+// Investor Matching API  
+POST /api/v1/investors/match
+  - Body: {
+      opportunity_id,
+      investor_filters: { types[], ticket_sizes[], sectors[] },
+      match_threshold: 0.7,
+      include_reasoning: true
+    }
+  - Response: {
+      matches[],
+      match_scores,
+      rationales[],
+      recommended_approaches[]
+    }
+
+GET /api/v1/investors/{investor_id}/profile
+  - Response: {
+      mandate_details,
+      investment_history[],
+      current_portfolio,
+      preference_evolution,
+      contact_preferences
+    }
+
+POST /api/v1/outreach/campaigns/create
+  - Body: {
+      match_ids[],
+      campaign_type: "opportunity_intro",
+      personalization_level: "high",
+      scheduling_preferences,
+      approval_workflow: true
+    }
+  - Response: {
+      campaign_id,
+      generated_content[],
+      review_queue_position,
+      estimated_launch_date
+    }
+
+GET /api/v1/outreach/campaigns/{campaign_id}/performance
+  - Response: {
+      delivery_metrics,
+      response_rates,
+      engagement_quality,
+      conversion_tracking,
+      roi_indicators
+    }
+```
+
+#### 10. Compliance & Risk Service
 ```typescript
 POST /api/v1/compliance/check/pre-publication
   - Body: { 
@@ -1288,12 +1470,12 @@ gantt
 ### MVP-Scope Definition (Minimum Viable Product)
 
 #### Core-Features für Initial Release (Deutschland-Fokus)
-1. **Automated Sourcing (50 deutsche Small-Mid-Caps)**
-   - IR-Website-Crawler für Major MDAX/SDAX/Scale-Unternehmen
-   - RSS/Atom-Feed Integration für Ad-hoc-Meldungen
-   - DGAP/BaFin-Feed Integration
-   - Deduplizierung via Content-Hashing
-   - Prioritäts-basierte Processing-Queue
+1. **Complete Market Surveillance (500+ deutsche Small-Caps)**
+   - Vollabdeckung aller börsennotierten deutschen Unternehmen
+   - MDAX/SDAX/Scale/m:access/General Standard Integration
+   - DGAP/BaFin-Feed Integration für Real-time Regulatory Updates
+   - Bundesanzeiger-Anbindung für Historic Financials
+   - IR-Website-Monitoring aller gelisteten Unternehmen
 
 2. **Document Processing Pipeline**
    - PDF-Parser (Tabula + pdfplumber Stack)
@@ -1301,36 +1483,39 @@ gantt
    - Entity Resolution für Company/Security-Mapping
    - Section Classification (Financial Statements, MD&A, Outlook)
 
-3. **NLP-Analytics (Primär Deutsch, Sekundär Englisch)**
-   - KPI-Extraktion: Umsatz, EBITDA, Jahresüberschuss, EPS
-   - Guidance-Detection mit deutscher Zeitreferenzen (Q+1, GJ+1)
-   - Sentiment-Analysis für deutsche Finanzsprache
-   - Change-Detection vs. Vorperiode (YoY, QoQ)
-   - HGB/IFRS-Konformität für deutsche Rechnungslegung
+3. **Opportunity Detection Engine (Primärer Geschäftswert)**
+   - Financial Distress Signal Detection (Liquiditäts-/Refinanzierungsbedarfe)
+   - Growth Capital Opportunity Recognition (Expansion, Capex, M&A-Pläne)
+   - M&A Target Attractiveness Scoring (Bewertungs-Gaps, Strategic Assets)
+   - ESG Transition Capital Needs (Green Investment Requirements)
+   - Automated Alert-Generation mit Confidence-Scoring
 
-4. **Hybrid Forecasting Engine**
-   - ARIMA-Baseline für Mean-Reversion Trends
-   - LightGBM-Panel-Model für Cross-sectional Insights
-   - SHAP-basierte Explainability für Top-3 Faktoren
-   - Human-Override-Interface mit Reasoning
+4. **Investor Intelligence Database**
+   - Vollständige deutsche Investor-Landschaft (PE, VC, Strategic, Family Offices)
+   - Dynamic Preference Profiling (Sektoren, Ticket-Größen, Investment-Thesis)
+   - Historical Deal-Tracking und Portfolio-Analysis
+   - Real-time Activity-Monitoring (Neue Investments, Exits)
+   - Conference/Event-Intelligence für Relationship-Mapping
 
-5. **Multi-Method Valuation**
-   - DCF-Engine mit WACC-Berechnung
-   - Peer-Multiple-Valuation (P/E, EV/EBITDA, EV/Sales)
-   - Szenario-Analyse (Base/Bear/Bull)
-   - Sensitivity-Testing für Key-Variablen
+5. **Automated Matching & Outreach Engine**
+   - Company-Investor-Fit-Scoring basierend auf Präferenzen und Opportunities
+   - Personalized Message Generation für Company-Outreach
+   - Investor-Alert-System für neue Opportunities mit Match-Rationale  
+   - Multi-Channel-Campaign-Management (E-Mail, Telefon, Events)
+   - Response-Tracking und Conversion-Analytics
 
-6. **Flash Report Generator**
-   - Template-basierte PDF/HTML-Generierung
-   - Automated Chart Creation (Time Series, Peer Comparison)
-   - Compliance-Integration (MiFID II Disclosures)
-   - Corporate Design Enforcement
+6. **Deal Pipeline Management**
+   - Lead-Scoring und Qualification-Automation
+   - Meeting-Scheduling und Follow-up-Automation
+   - Pipeline-Visualisierung mit Conversion-Funnel
+   - Performance-Analytics für Outreach-Kampagnen
+   - CRM-Integration für Relationship-Management
 
-7. **Basic Distribution**
-   - Web-Portal mit RBAC (Role-based Access Control)
-   - Email-Benachrichtigungen bei neuen Reports
-   - Engagement-Tracking (Views, Downloads)
-   - Client-Feedback-Collection
+7. **Market Intelligence Dashboard**
+   - Real-time Opportunity-Detection-Feed
+   - Company-Financial-Health-Monitoring (Heat Maps, Alerts)
+   - Investor-Activity-Tracking (Neue Mandate, Portfolio-Shifts)
+   - Market-Trend-Analysis (Sektor-spezifische Capital-Needs)
 
 ### Akzeptanzkriterien (Messbare Erfolgsmetriken)
 
@@ -1349,15 +1534,17 @@ Quality_Gates:
   alert_precision: "Minimierung von False Positives"
 ```
 
-#### 2. Business Value (Deutschland v1)
+#### 2. Business Value (Deutschland v1 - Proaktive Market Intelligence)
 ```yaml
 BusinessMetrics:
-  coverage_scope: "Deutsche Small/Mid-Caps (MDAX/SDAX/Scale)"
-  report_generation: "Regelmäßige Flash Updates bei Earnings"
-  analyst_efficiency: "Zeitersparnis bei Routine-Aufgaben"
-  client_value: "Schnellere Information bei relevanten Events"
-  market_coverage: "Sukzessive Abdeckung deutscher Small-Caps"
-  process_automation: "Reduktion manueller Datenextraktion"
+  market_surveillance: "Vollständige Überwachung aller deutschen Small-Caps"
+  opportunity_detection: "Automatische Erkennung von Kapitalmarkt-Opportunities"
+  proactive_origination: "Individualisierte Unternehmens-Ansprachen basierend auf erkannten Bedarfen"
+  investor_matching: "Automatisierte Investor-Company-Matches mit Präferenz-Profiling"
+  pipeline_generation: "Systematische Deal-Pipeline-Entwicklung durch KI-gestützte Lead-Generierung"
+  relationship_intelligence: "Dynamische Investor-Datenbank mit Aktivitäts-Tracking"
+  personalized_outreach: "Skalierte, individualisierte Kommunikation für Companies & Investors"
+  market_timing: "Optimale Timing-Erkennung für Kapitalmarkt-Aktivitäten"
 ```
 
 #### 3. Technical Excellence
