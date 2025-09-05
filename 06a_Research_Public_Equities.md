@@ -1197,8 +1197,8 @@ EscalationRules:
     - large_market_move: true  # >5% intraday
     
   senior_analyst_approval:
-    - forecast_deviation_from_consensus > 15%
-    - valuation_change > 25%
+    - significant_forecast_deviation_from_consensus: true
+    - material_valuation_change: true
     - rating_change_implied: true
     
   compliance_review:
@@ -1209,30 +1209,26 @@ EscalationRules:
 
 ### Performance-Monitoring Dashboard
 
-#### Echtzeit-Metriken für Operations Team
-```typescript
-EarningsDayMetrics: {
-  "pipeline_slas": {
-    "total_processing_time_p95": "28 minutes",
-    "document_detection_latency": "45 seconds", 
-    "nlp_processing_time": "1.2 minutes",
-    "report_generation_time": "6.8 minutes"
-  },
+#### Performance-Monitoring für Operations Team
+```yaml
+Pipeline_Monitoring:
+  processing_times:
+    document_detection: "Zeitnahes Erkennen neuer Dokumente"
+    nlp_processing: "Effiziente Textanalyse und KPI-Extraktion"
+    report_generation: "Automatisierte Report-Erstellung"
+    end_to_end: "Vollständige Pipeline-Durchlaufzeit"
   
-  "quality_indicators": {
-    "kpi_extraction_accuracy": 96.2%, // vs. manual labels
-    "forecast_mae_vs_consensus": 0.85, // Lower is better
-    "client_satisfaction_score": 4.3,  // /5.0
-    "false_positive_rate": 2.1%        // Wrong alerts
-  },
+  quality_indicators:
+    extraction_accuracy: "Präzision der KPI-Extraktion"
+    forecast_quality: "Qualität der Prognosen"
+    alert_relevance: "Relevanz der generierten Alerts"
+    system_reliability: "Stabilität der Gesamtarchitektur"
   
-  "business_impact": {
-    "flash_reports_delivered": 847,
-    "client_engagement_lift": "+23%",   // vs. manual reports
-    "analyst_time_saved": "18.5h/week", 
-    "revenue_attribution": "€2.1M/quarter"
-  }
-}
+  operational_metrics:
+    reports_processed: "Anzahl verarbeiteter Dokumente"
+    system_utilization: "Auslastung der Infrastruktur"  
+    error_rates: "Fehlerquoten und Ausfälle"
+    user_activity: "Nutzung durch Analysten und Clients"
 ```
 
 #### Continuous Improvement Feedback Loop
@@ -1341,45 +1337,43 @@ gantt
 #### 1. Performance & Latenz
 ```yaml
 SLA_Targets:
-  document_detection: "≤ 2 minutes P95"
-  end_to_end_processing: "≤ 30 minutes P95 (Earnings Flash)"
-  system_availability: "≥ 99.5% uptime"
-  concurrent_processing: "≥ 20 documents parallel"
+  document_detection: "Wenige Minuten nach Veröffentlichung"
+  end_to_end_processing: "Ca. 30 Minuten für Earnings Flash Updates"
+  system_availability: "Hohe Verfügbarkeit während Handelszeiten"
+  concurrent_processing: "Parallele Dokumentenverarbeitung"
   
 Quality_Gates:
-  kpi_extraction_f1: "≥ 0.92 (vs. manual gold labels)"
-  forecast_mae_improvement: "≤ 0.95 * consensus_mae (5% better)"
-  sentiment_accuracy: "≥ 0.88 (vs. analyst scoring)"
-  false_positive_rate: "≤ 3% (wrong alerts)"
+  kpi_extraction_accuracy: "Vergleichbar mit manueller Extraktion"
+  forecast_quality: "Competitive zu bestehenden Methoden"
+  sentiment_detection: "Zuverlässige Trend-Erkennung"
+  alert_precision: "Minimierung von False Positives"
 ```
 
 #### 2. Business Value (Deutschland v1)
-```typescript
-BusinessMetrics: {
-  coverage_scope: "≥ 50 deutsche Small/Mid-Caps (MDAX/SDAX/Scale)",
-  flash_report_generation: "≥ 200 deutsche Reports/Quartal",
-  analyst_time_savings: "≥ 15 Stunden/Woche/Analyst",
-  client_satisfaction: "≥ 4.0/5.0 durchschnittliche Bewertung",
-  engagement_improvement: "≥ 20% Anstieg deutscher Report-Views",
-  revenue_attribution: "≥ €1M/Quartal identifizierte Opportunities",
-  german_market_coverage: "≥ 80% SDAX-Abdeckung bis Ende v1"
-}
+```yaml
+BusinessMetrics:
+  coverage_scope: "Deutsche Small/Mid-Caps (MDAX/SDAX/Scale)"
+  report_generation: "Regelmäßige Flash Updates bei Earnings"
+  analyst_efficiency: "Zeitersparnis bei Routine-Aufgaben"
+  client_value: "Schnellere Information bei relevanten Events"
+  market_coverage: "Sukzessive Abdeckung deutscher Small-Caps"
+  process_automation: "Reduktion manueller Datenextraktion"
 ```
 
 #### 3. Technical Excellence
 ```yaml
 Architecture_Quality:
-  code_coverage: "≥ 80%"
-  api_response_time_p95: "≤ 500ms (feature store)"
-  data_quality_score: "≥ 95% (completeness + accuracy)"
-  ml_model_drift: "Alert if feature drift > 0.2 PSI"
-  security_compliance: "GDPR + MiFID II compliant"
+  code_quality: "Hohe Testabdeckung und Code-Standards"
+  api_performance: "Responsive API-Layer für Feature Store"
+  data_quality: "Konsistente und vollständige Datenextraktion"
+  model_monitoring: "Überwachung von ML-Model-Performance"
+  security_compliance: "GDPR + MiFID II Konformität"
   
-Scalability_Proof:
-  concurrent_users: "≥ 100 analysts + 500 clients"
-  data_ingestion: "≥ 1000 documents/day"
-  storage_efficiency: "≤ 10GB/1000 processed documents"
-  cost_per_report: "≤ €5 infrastructure cost"
+Scalability_Design:
+  user_capacity: "Skalierbar für Analyst- und Client-Zugriffe"
+  data_processing: "Effiziente Verarbeitung von Dokumenten-Streams"
+  storage_architecture: "Optimierte Datenhaltung und -archivierung"
+  cost_efficiency: "Kosteneffiziente Cloud-Infrastruktur"
 ```
 
 ### Go-Live Readiness Checklist
@@ -1469,22 +1463,22 @@ External_Dependencies:
 
 ```mermaid
 graph TB
-    subgraph "MVP Success Dashboard"
-        A[Technical KPIs] --> A1[SLA Compliance: 98.2%]
-        A --> A2[Extraction Accuracy: 94.1%]
-        A --> A3[System Uptime: 99.7%]
+    subgraph "MVP Success Monitoring"
+        A[Technical KPIs] --> A1[SLA Compliance]
+        A --> A2[Extraction Quality]
+        A --> A3[System Verfügbarkeit]
         
-        B[Business KPIs] --> B1[Reports Generated: 892/quarter]
-        B --> B2[Client Satisfaction: 4.3/5.0]  
-        B --> B3[Time Savings: 22h/week]
+        B[Business KPIs] --> B1[Report Coverage]
+        B --> B2[User Adoption]  
+        B --> B3[Process Efficiency]
         
-        C[Financial KPIs] --> C1[Revenue Attribution: €2.8M]
-        C --> C2[Cost per Report: €3.20]
-        C --> C3[ROI: 340%]
+        C[Operational KPIs] --> C1[Pipeline Performance]
+        C --> C2[Infrastructure Utilization]
+        C --> C3[Maintenance Overhead]
         
-        D[Quality KPIs] --> D1[False Positives: 1.8%]
-        D --> D2[Forecast Accuracy: +12% vs. Manual]
-        D --> D3[Client Retention: 96%]
+        D[Quality KPIs] --> D1[Alert Precision]
+        D --> D2[Data Consistency]
+        D --> D3[User Satisfaction]
     end
 ```
 
@@ -1497,7 +1491,7 @@ graph TB
 - **Regulierung**: BaFin, HGB/IFRS, DGAP-Integration
 - **Datenquellen**: Deutsche IR-Websites, Xetra, deutsche Medien
 - **Zielgruppe**: Deutsche institutionelle Investoren, Family Offices
-- **Success Metrics**: 50+ deutsche Small/Mid-Caps, 80% SDAX-Abdeckung
+- **Ziele**: Abdeckung deutscher Small/Mid-Caps, SDAX-Fokus
 
 ### Phase 2: EU-Expansion (v2, Q2 2026 - Q4 2026)
 **Rationale**: Bewährte Technologie auf ähnliche EU-Märkte skalieren
@@ -1530,7 +1524,7 @@ graph LR
 - EU-weite ESG/CSRD-Integration
 - Harmonisierte MiFID II-Compliance
 
-Diese Deutschland-First-Strategie minimiert initiale Komplexität und maximiert die Erfolgswahrscheinlichkeit, bevor die bewährte Lösung europaweit skaliert wird.
+Diese Deutschland-First-Strategie minimiert initiale Komplexität und ermöglicht eine fokussierte Entwicklung, bevor die bewährte Lösung europaweit skaliert wird.
 
 ## Analyseprozesse und Methoden
 
