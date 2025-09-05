@@ -1,10 +1,22 @@
 # Public Equities Research – Small- und Mid-Caps
 
-- Zweck: Fundamentalanalyse deutscher Small-/Mid-Caps für institutionelle Investoren.
-- Output: Research-Reports, Ratings, Kursziele, Investorenempfehlungen.
-- Fokus: Bottom-up-Analyse, Bewertungsmodelle, Management-Kontakt, Branchenvergleiche.
+**Zwei-Säulen-Strategie für unterschiedliche Geschäftsziele:**
 
-## End-to-End Prozessarchitektur (Automatisierte Research-Pipeline)
+## A) Market Intelligence & Deal Origination (B2B - Investment Banking)
+**Ziel**: Proaktive Identifikation und Ansprache von Kapitalmarkt-Opportunities
+- **Geschäftsmodell**: Deal-Origination, Fee-basierte Investment Banking Services
+- **Zielgruppe**: Unternehmen mit Kapitalbedarf + Investoren
+- **Output**: Qualified Leads, Deal Pipeline, M&A Opportunities
+
+## B) Retail Research & Reports (B2C - Research Services)  
+**Ziel**: Traditionelle Research-Reports für externe Investoren
+- **Geschäftsmodell**: Research-as-a-Service, Subscription-basiert
+- **Zielgruppe**: Institutionelle Investoren, Asset Manager, Family Offices
+- **Output**: Research-Reports, Ratings, Kursziele, Investment-Empfehlungen
+
+---
+
+## SÄULE A: Market Intelligence & Deal Origination Pipeline
 
 ### Proaktive Market Intelligence & Opportunity Detection (Deutschland v1, EU v2)
 
@@ -1729,6 +1741,150 @@ graph LR
 - Harmonisierte MiFID II-Compliance
 
 Diese Deutschland-First-Strategie minimiert initiale Komplexität und ermöglicht eine fokussierte Entwicklung, bevor die bewährte Lösung europaweit skaliert wird.
+
+---
+
+## SÄULE B: Retail Research & Report Generation
+
+### Traditionelle Research-Pipeline für externe Investoren
+
+```mermaid
+flowchart TD
+  A[Coverage Universe - Selected Small/Mid-Caps] --> B[Research-Driven Analysis]
+  B --> C[Analyst Research Process]
+  C --> D[Financial Modeling & Valuation]
+  D --> E[Investment Thesis Development]
+  E --> F[Report Writing & Review]
+  F --> G[Compliance & Disclosure Checks]
+  G --> H[Report Publication & Distribution]
+  H --> I[Client Engagement & Follow-up]
+  
+  subgraph "Research Sources"
+    J[Company Financials]
+    K[Management Interviews]
+    L[Industry Analysis]
+    M[Peer Comparisons]
+  end
+  
+  J --> C
+  K --> C
+  L --> C
+  M --> C
+  
+  subgraph "Distribution Channels"
+    N[Research Portal]
+    O[Bloomberg/FactSet]
+    P[Direct Client Access]
+    Q[Conference Presentations]
+  end
+  
+  H --> N
+  H --> O
+  H --> P
+  H --> Q
+```
+
+### Kernunterschiede zu Säule A (Deal Origination)
+
+| Aspekt | Säule A: Deal Origination | Säule B: Retail Research |
+|--------|---------------------------|-------------------------|
+| **Geschäftszweck** | Deal-Pipeline generieren | Investment-Empfehlungen geben |
+| **Zielgruppe** | Unternehmen + Investoren | Nur Investoren |
+| **Coverage** | Alle Small-Caps (500+) | Ausgewählte Titel (50-100) |
+| **Frequenz** | Kontinuierliche Überwachung | Quarterly Updates + Ad-hoc |
+| **Output** | Opportunity Alerts, Matches | Research Reports, Ratings |
+| **Revenue Model** | Transaction Fees | Subscription Fees |
+| **Automation Level** | Hoch (KI-gesteuert) | Mittel (Analyst-getrieben) |
+| **Personalisierung** | Individualisiert für Deals | Standardisiert für Märkte |
+
+### Research-Service Spezifikationen (Säule B)
+
+#### 1. Coverage-Strategie für Retail Research
+**Ziel**: Qualitätsfokussierte Abdeckung ausgewählter deutscher Small-Caps
+- **Selektive Abdeckung**: 50-100 sorgfältig ausgewählte Unternehmen
+- **Quality over Quantity**: Tiefere Analyse statt Vollabdeckung
+- **Sektorale Schwerpunkte**: Technology, Healthcare, Industrial Leaders
+- **Liquidity Focus**: Handelbare Titel für institutionelle Investoren
+- **Regular Updates**: Quarterly Reports + Ad-hoc bei Material Events
+
+#### 2. Traditional Research Process
+**Ziel**: Hochwertiger Research-Content durch Analyst-Expertise
+- **Fundamental Analysis**: 
+  - DCF-Bewertung mit detaillierter Cash Flow-Modellierung
+  - Peer-Multiple-Analyse mit Sector-spezifischen Adjustments
+  - Sum-of-the-Parts für diversifizierte Unternehmen
+  - Szenario-Analysen für volatile Geschäftsmodelle
+- **Management Assessment**: 
+  - Regelmäßige IR-Calls und Management-Meetings
+  - Track Record-Analyse der Führungsmannschaft
+  - Strategy Execution-Bewertung
+- **Industry Context**:
+  - Marktpositionierung und Competitive Advantages
+  - Regulatory Environment und Branchentrends
+  - ESG-Faktoren und Nachhaltigkeits-Risiken
+
+#### 3. Report Generation & Quality Assurance
+**Ziel**: Professionelle Research-Reports mit klaren Investment-Empfehlungen
+- **Report Templates**:
+  - **Initiation Reports**: Comprehensive Company Analysis (15-20 Seiten)
+  - **Quarterly Updates**: Earnings Analysis + Model Updates (5-8 Seiten)
+  - **Flash Notes**: Breaking News Analysis (2-3 Seiten)
+  - **Sector Reports**: Industry Overview mit Stock Selection (10-15 Seiten)
+- **Rating System**: 
+  - Buy / Hold / Sell mit 12-Monats-Kurszielen
+  - Risk-Rating (Low / Medium / High)
+  - ESG-Score Integration
+- **Quality Control**:
+  - Senior Analyst Review Process
+  - Financial Model Validation
+  - Compliance Check (MiFID II / MAR)
+  - Fact-checking und Source Verification
+
+#### 4. Client-Centric Distribution (Säule B)
+**Ziel**: Effektive Research-Distribution an zahlende Kunden
+- **Research Portal**: 
+  - Subscription-basierte Web-Plattform
+  - Advanced Search und Filtering
+  - Historical Report Archive
+  - Mobile-optimierter Zugang
+- **Third-Party Integration**:
+  - Bloomberg Terminal Integration
+  - FactSet Research-Feed
+  - Refinitiv Eikon Distribution
+- **Client Services**:
+  - Analyst-Client-Calls zu Reports
+  - Conference-Call-Access für Earnings
+  - Custom Research-Requests (Premium)
+  - Roadshow-Organisation für Coverage-Unternehmen
+
+### Synergien zwischen Säule A & B
+
+**Shared Data Infrastructure**:
+- Gemeinsame Datenquellen (DGAP, IR-Websites, Financials)
+- Geteilte Entity-Resolution und Financial-Processing
+- Cross-Referenz zwischen Opportunity-Detection und Research-Coverage
+
+**Cross-Selling Opportunities**:
+- Säule A identifiziert Deals → Säule B erstellt Research-Coverage
+- Säule B Research-Kunden → Säule A Investor-Database
+- Combined Client-Value durch beide Services
+
+**Operational Efficiency**:
+- Shared Technology-Stack für Datenverarbeitung
+- Common Compliance und Risk-Framework
+- Integrated Client-Relationship-Management
+
+### Priorisierung: Säule A First, Säule B Follow
+
+**Phase 1: Market Intelligence MVP (Säule A)**
+- Fokus auf Deal-Origination und Pipeline-Generation
+- Höheres Revenue-Potential durch Transaction-Fees
+- Differenzierung im Markt durch proaktiven Ansatz
+
+**Phase 2: Research Services Extension (Säule B)**  
+- Aufbau auf bewährter Daten-Infrastruktur von Säule A
+- Zusätzliche Revenue-Stream durch Subscriptions
+- Komplettierung des Investment-Banking-Service-Angebots
 
 ## Analyseprozesse und Methoden
 
