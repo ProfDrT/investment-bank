@@ -56,7 +56,7 @@ flowchart TD
 Input: "Alle Bayern-Unternehmen, Maschinenbau, €50-250M Umsatz"
 KI-Enhancement: + Patent-Aktivität + Export-Wachstum + Mitarbeiter-LinkedIn-Trends
 Output: 15 "Hidden Champions" mit Investment-Readiness-Score
-Zeit: 15 Minuten statt 2 Wochen manuell
+Zeit: Deutlich verkürzt gegenüber manueller Analyse
 ```
 
 ### 2. Information Overload → Intelligent Document Processing
@@ -64,17 +64,17 @@ Zeit: 15 Minuten statt 2 Wochen manuell
 **Das Problem**: Analysten ertrinken in Dokumenten - Geschäftsberichte, News, Calls, Ad-hoc Meldungen
 
 **KI-Lösung**: NLP-Enhanced Information Extraction
-- **Document Summarization**: Kernaussagen aus 100-seitigen Reports in 2 Minuten
+- **Document Summarization**: Kernaussagen aus umfangreichen Reports extrahieren
 - **Change Detection**: "Was ist neu vs. Vorquartal?" automatisch identifiziert
 - **Sentiment Tracking**: Management-Ton quantifiziert über Zeit-Horizonte
 - **Key Metrics Extraction**: Automatische KPI-Tabellen aus unstrukturierten Texten
 
 **Konkreter Use Case: Quarterly Earnings Analysis**
 ```
-Traditionell: 4-6 Stunden Analyst-Zeit für Call-Transcript + Report
-Mit KI: 10 Minuten für vollständigen Earnings-Review
+Traditionell: Mehrstündige Analyst-Zeit für Call-Transcript + Report
+Mit KI: Automatisierte Analyse mit vollständigem Earnings-Review
 Qualität: Alle relevanten Punkte, keine Oversight, Quellenverweise
-Skalierung: 50 Companies statt 10 parallel bearbeitbar
+Skalierung: Deutlich mehr Companies parallel bearbeitbar
 ```
 
 ### 3. Zeitdruck Earnings Season → Real-time Analysis Generation
@@ -84,7 +84,7 @@ Skalierung: 50 Companies statt 10 parallel bearbeitbar
 **KI-Lösung**: Automated Report Generation & Real-time Processing
 - **Live Earnings Analysis**: Während Conference Call bereits Highlights generieren
 - **Instant Peer Comparison**: Sofortige Einordnung vs. Sector/Competitors
-- **Automated First Drafts**: 3500-Wort Reports in 5 Minuten (OpenAI Beispiel)
+- **Automated First Drafts**: Umfassende Reports in kurzer Zeit generieren
 - **Multi-language Output**: Deutsch/Englisch parallel für internationale Kunden
 
 **Konkreter Use Case: DAX Earnings Coverage**
@@ -105,11 +105,11 @@ Analyst Role: Strategy/Interpretation statt Data-Gathering
 - **Client Personalization**: Individual Research-Feeds based auf Portfolio
 - **Performance Analytics**: ML-Enhanced Research-Impact-Messung
 
-**ROI-Metriken aus der Praxis**:
-- **Marvin Labs**: 25% Kostenreduktion Junior Analysts, 20% Overall Research Costs
-- **Coverage Expansion**: +50% mehr Unternehmen bei gleicher Team-Größe  
-- **Time-to-Market**: Reports 80% schneller bei höherer Consistency
-- **Client Satisfaction**: Personalized Content → +40% Engagement Rates
+**Praxis-Erfahrungen**:
+- **Marvin Labs**: Kostenreduktion bei Junior Analysts und Research-Kosten
+- **Coverage Expansion**: Deutlich mehr Unternehmen bei gleicher Team-Größe  
+- **Time-to-Market**: Beschleunigte Reports bei höherer Consistency
+- **Client Satisfaction**: Personalized Content steigert Engagement
 
 ### Research-Workflow Integration
 
@@ -186,7 +186,7 @@ flowchart LR
 - **Management Guidance**: Automatisches Forward-Looking Statement Tracking
 - **Document Change Detection**: Kritische Änderungen vs. Previous Reports
 - **Sentiment Scoring**: Numerische Stimmungsquantifizierung für Zeitreihen
-- **Real-time Processing**: 10-Minuten Earnings Review Generation
+- **Real-time Processing**: Schnelle Earnings Review Generation
 
 3) **Interactive Chat Interface**
 - **Natural Language Queries**: "Wie entwickelte sich Bruttomarge und warum?"
@@ -196,10 +196,10 @@ flowchart LR
 
 ### Efficiency & Cost Benefits
 
-**Quantified Impact Metrics**
-- **Earnings Season**: ~25% Kostenreduktion Junior Analysts, ~10% Senior
-- **Overall Research Costs**: ~20% Reduktion bei höherer Qualität
-- **Time Savings**: 5 Minuten für 5 Finanzberichte vs. Stunden manuell
+**Impact Metrics**
+- **Earnings Season**: Kostenreduktion bei Junior und Senior Analysts
+- **Overall Research Costs**: Kostenreduktion bei höherer Qualität
+- **Time Savings**: Deutliche Zeitersparnis bei Finanzberichten
 - **Coverage Expansion**: Mehr Small Caps mit gleichem Ressourceneinsatz
 
 **Workflow Integration**

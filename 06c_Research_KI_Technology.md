@@ -94,7 +94,7 @@ flowchart LR
 - **Funktionalität**: Sekunden-Suche in Millionen Dokumenten
 - **NLP-Features**: Synonym-Erkennung, Kontext-Analysis, Trend-Tracking
 - **Integration**: Nahtlose Einbindung in Research-Workflows
-- **ROI**: 60-80% Zeitersparnis bei Recherche-Aufgaben
+- **Nutzen**: Deutliche Zeitersparnis bei Recherche-Aufgaben
 
 2) **Automated Earnings Analysis**  
 - **Kensho-Integration**: Historische Event-Impact-Analysen
@@ -128,7 +128,7 @@ sequenceDiagram
 - **Model Type**: Ensemble Methods (Random Forest + Neural Networks)
 - **Input Variables**: Fundamental data, macro indicators, sentiment
 - **Output**: EPS/Revenue predictions mit Confidence Intervals
-- **Performance**: 25-40% höhere Accuracy vs. traditional methods
+- **Performance**: Verbesserte Accuracy gegenüber traditionellen Methoden
 
 2) **Stock Price Movement Prediction**
 - **Event-driven Models**: Kensho-style historical pattern analysis
@@ -197,14 +197,14 @@ flowchart TD
 
 ## Produktivitätsgewinne und Effizienzsteigerung
 
-### Quantified Benefits
+### KI-Enhanced Research Vorteile
 
 ```mermaid
 graph LR
-  A["Traditional Research"] --> B["40% Zeitersparnis"]
-  A --> C["25% Bessere Accuracy"] 
-  A --> D["60% Mehr Coverage"]
-  A --> E["30% Höhere Client Satisfaction"]
+  A["Traditional Research"] --> B["Zeitersparnis"]
+  A --> C["Verbesserte Accuracy"] 
+  A --> D["Erweiterte Coverage"]
+  A --> E["Höhere Client Satisfaction"]
   
   B --> F["KI-Enhanced Research"]
   C --> F
@@ -215,8 +215,8 @@ graph LR
 ### Konkrete Anwendungsfälle
 
 1) **Data Collection & Processing**
-- **Vor KI**: 4-6 Stunden für Earnings-Call-Analyse
-- **Mit KI**: 30 Minuten + Review-Zeit
+- **Traditionell**: Mehrstündige manuelle Earnings-Call-Analyse
+- **Mit KI**: Automatisierte Analyse mit menschlicher Review
 - **Qualitätsverbesserung**: Vollständige Abdeckung statt selektive Notizen
 - **Skalierung**: Simultane Coverage mehrerer Calls
 
