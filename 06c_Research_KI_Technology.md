@@ -379,7 +379,7 @@ graph TD
 
 ## Navigation
 
-- [← Private Research](06b_Research_Private_Companies.md) | [Research Übersicht](06_Research.md)
+- [← Private Research](06b_Research_Private_Companies.md) | [Research Übersicht](06_Research.md) | [→ Marktakteure](06d_Research_Market_Analysis.md)
 - [Corporate Finance](01_Corporate_Finance_MA_Finanzierung.md) | [ECM - IPO](02_ECM_IPO.md) | [DCM](03_DCM_Anleiheemission.md) | [Secondary](04_ECM_Kapitalerhoehung_Secondary.md) | [Sales & Trading](05_Sales_Trading_Designated_Sponsoring.md) | [Research](06_Research.md) | [Risk & Compliance](07_Risk_Compliance.md) | [Operations & IT](08_Operations_IT.md)
 - [Templates](templates/) | [README](README.md)
 
