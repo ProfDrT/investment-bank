@@ -6,7 +6,7 @@
 
 ## End-to-End Prozessarchitektur (Automatisierte Research-Pipeline)
 
-### Vollautomatisierte Prozesskette für Small & Mid Caps (D-ACH)
+### Vollautomatisierte Prozesskette für Small & Mid Caps (Deutschland v1, EU v2)
 
 ```mermaid
 flowchart TD
@@ -52,31 +52,38 @@ flowchart TD
 
 ### Detaillierte Subprozess-Spezifikationen
 
-#### 1. Coverage Policy & Universe (Strategische Steuerung)
-**Ziel**: Klare Definition der abzudeckenden Titel mit automatisierter Priorisierung
-- **Inputs**: 
+#### 1. Coverage Policy & Universe (Deutschland-Fokus v1)
+**Ziel**: Klare Definition der deutschen Small-/Mid-Caps mit automatisierter Priorisierung
+- **Inputs Deutschland v1**: 
   - Marktkapitalisierung (€50M - €2Bn)
-  - Free Float (>25%)
-  - Handelsliquidität (Avg. Daily Volume)
-  - Sektorverteilung (Technology, Healthcare, Industrial)
-  - Investorennachfrage-Score
+  - Börsen-Segmente: MDAX, SDAX, Scale, m:access
+  - Free Float (>25%), Handelsliquidität (Ø tägl. Volumen)
+  - Sektorverteilung (Technology, Healthcare, Industrial, Consumer)
+  - Investorennachfrage deutscher Institutioneller
+  - BaFin-Regulierungsstatus, HGB/IFRS-Reporting
 - **Automatisierung**: 
-  - Monatlicher Priority-Score: `(Liquidity × 0.3) + (Investor_Interest × 0.4) + (News_Frequency × 0.2) + (Event_Density × 0.1)`
+  - Monatlicher Priority-Score: `(DE_Liquidity × 0.3) + (DE_Investor_Interest × 0.4) + (German_News_Frequency × 0.2) + (DGAP_Event_Density × 0.1)`
   - Coverage-Lifecycle: `Prospect → Initiate → Maintain → Suspend`
-- **Output**: `coverage_universe` (Firmenliste mit P1-P3 Priorität)
-- **Owner**: Head of Research (Policy) + Research Operations (Execution)
+  - **v2 EU-Expansion**: Erweitert um französische, italienische, niederländische Markets
+- **Output**: `coverage_universe_de` (50+ deutsche Firmen, P1-P3 Priorität)
+- **Owner**: Head of German Research + Research Operations
 
-#### 2. Sourcing Engine (Kritisch für Echtzeitanalysis)
-**Ziel**: Vollautomatische Erfassung aller relevanten Unternehmensinformationen
-- **Connectors**:
-  - **IR-Web-Crawler**: Sitemap-basiert, RSS-Feeds, robots.txt-konform
-  - **Regulatorische Feeds**: BaFin Ad-hoc, EQS Group, DGAP
-  - **Finanz-APIs**: Bloomberg B-PIPE, FactSet Real-Time
-  - **Alternative Daten**: Glassdoor (Hiring), Google Trends, LinkedIn Analytics
+#### 2. Sourcing Engine (Deutschland-First Strategie)
+**Ziel**: Vollautomatische Erfassung deutscher Unternehmensinfo mit EU-Skalierbarkeit
+- **Deutschland v1 Connectors**:
+  - **Deutsche IR-Crawler**: MDAX/SDAX-IR-Websites, deutsche RSS-Feeds
+  - **BaFin/DGAP-Integration**: Ad-hoc-Meldungen, Regulatorische Publikationen
+  - **Deutsche Finanz-APIs**: Xetra-Feeds, Tradegate-Daten, L&S Exchange
+  - **Deutsche Alt-Data**: Kununu, Xing, deutsche Google Trends, Bundesanzeiger
+  - **Deutsche Medien**: Manager Magazin, Handelsblatt, WirtschaftsWoche APIs
+- **v2 EU-Expansion Connectors**: 
+  - Euronext-Feeds (Paris/Amsterdam/Brussels), Borsa Italiana, SIX Swiss
+  - AMF/CONSOB/AFM/FINMA-Feeds, lokale IR-Crawler
+  - Lokale Alt-Data (JobTeaser/FR, InfoJobs/IT, Indeed/NL)
 - **Deduplizierung**: SHA-256 Content Fingerprinting + Fuzzy Matching (Titel/Datum)
-- **Quality Gates**: Source-Trust-Score (0.1-1.0), Content-Completeness-Check
-- **SLAs**: Earnings-Release Detection ≤2 Min, Processing Start ≤5 Min
-- **Event-Trigger**: `doc.ingested`, `price.anomaly`, `consensus.revision`, `guidance.update`
+- **Quality Gates**: Source-Trust-Score (0.1-1.0), Content-Completeness-Check  
+- **SLAs Deutschland v1**: DGAP-Detection ≤2 Min, Processing Start ≤5 Min
+- **Event-Trigger**: `doc.ingested.de`, `xetra.anomaly`, `consensus.revision.de`
 
 #### 3. Multi-Format Parser & Normalizer
 **Ziel**: Strukturierte Extraktion aus heterogenen Datenformaten
@@ -1284,10 +1291,11 @@ gantt
 
 ### MVP-Scope Definition (Minimum Viable Product)
 
-#### Core-Features für Initial Release
+#### Core-Features für Initial Release (Deutschland-Fokus)
 1. **Automated Sourcing (50 deutsche Small-Mid-Caps)**
-   - IR-Website-Crawler für Major MDAX/SDAX Unternehmen
+   - IR-Website-Crawler für Major MDAX/SDAX/Scale-Unternehmen
    - RSS/Atom-Feed Integration für Ad-hoc-Meldungen
+   - DGAP/BaFin-Feed Integration
    - Deduplizierung via Content-Hashing
    - Prioritäts-basierte Processing-Queue
 
@@ -1297,11 +1305,12 @@ gantt
    - Entity Resolution für Company/Security-Mapping
    - Section Classification (Financial Statements, MD&A, Outlook)
 
-3. **NLP-Analytics (Deutsch + Englisch)**
-   - KPI-Extraktion: Revenue, EBITDA, Net Income, EPS
-   - Guidance-Detection mit Temporal Mapping (Q+1, FY+1)
-   - Sentiment-Analysis auf Section-Level
+3. **NLP-Analytics (Primär Deutsch, Sekundär Englisch)**
+   - KPI-Extraktion: Umsatz, EBITDA, Jahresüberschuss, EPS
+   - Guidance-Detection mit deutscher Zeitreferenzen (Q+1, GJ+1)
+   - Sentiment-Analysis für deutsche Finanzsprache
    - Change-Detection vs. Vorperiode (YoY, QoQ)
+   - HGB/IFRS-Konformität für deutsche Rechnungslegung
 
 4. **Hybrid Forecasting Engine**
    - ARIMA-Baseline für Mean-Reversion Trends
@@ -1344,15 +1353,16 @@ Quality_Gates:
   false_positive_rate: "≤ 3% (wrong alerts)"
 ```
 
-#### 2. Business Value
+#### 2. Business Value (Deutschland v1)
 ```typescript
 BusinessMetrics: {
-  coverage_scope: "≥ 50 German Small/Mid-Caps",
-  flash_report_generation: "≥ 200 reports/quarter",
-  analyst_time_savings: "≥ 15 hours/week/analyst",
-  client_satisfaction: "≥ 4.0/5.0 average rating",
-  engagement_improvement: "≥ 20% increase in report views",
-  revenue_attribution: "≥ €1M/quarter identified opportunities"
+  coverage_scope: "≥ 50 deutsche Small/Mid-Caps (MDAX/SDAX/Scale)",
+  flash_report_generation: "≥ 200 deutsche Reports/Quartal",
+  analyst_time_savings: "≥ 15 Stunden/Woche/Analyst",
+  client_satisfaction: "≥ 4.0/5.0 durchschnittliche Bewertung",
+  engagement_improvement: "≥ 20% Anstieg deutscher Report-Views",
+  revenue_attribution: "≥ €1M/Quartal identifizierte Opportunities",
+  german_market_coverage: "≥ 80% SDAX-Abdeckung bis Ende v1"
 }
 ```
 
@@ -1392,19 +1402,23 @@ Scalability_Proof:
 - [ ] **Compliance**: BaFin-Compliance-Officer Sign-off
 - [ ] **Pilot Testing**: 4-Week-Pilot mit 5 internen Analysten
 
-### Phase-2-Erweiterungen (Q2-Q3 2026)
+### Phase-2-Erweiterungen: EU-Expansion (Q2-Q3 2026)
 
-#### Advanced Features Roadmap
-1. **Multi-Language Support**
-   - Französische und italienische Earnings-Reports
-   - Cross-Border Peer-Comparisons
-   - Regulatory Feed Integration (AMF, CONSOB)
+#### Advanced Features Roadmap - Europaweite Skalierung
+1. **Multi-Country & Multi-Language Support**
+   - **Frankreich**: Euronext Paris Small/Mid-Caps, AMF-Feeds, französische NLP
+   - **Italien**: Borsa Italiana STAR/AIM, CONSOB-Integration, italienische Texte
+   - **Niederlande/Belgien**: Euronext Amsterdam/Brussels, AFM/FSMA-Feeds
+   - **Österreich/Schweiz**: Wiener Börse/SIX, FMA/FINMA-Compliance
+   - Cross-Border Peer-Comparisons mit Währungskonvertierung
+   - EU-weite Regulatory Harmonisierung (ESMA, MiFID II)
 
-2. **Advanced Analytics** 
-   - ESG-Score-Integration und Impact-Analysis
-   - Alternative Data (Web-Scraping, Job-Postings, News)
-   - Network-Effects-Modeling zwischen Unternehmen
-   - Real-time Market Data Integration
+2. **EU-weite Advanced Analytics**
+   - **ESG-Integration**: EU-Taxonomie-konforme ESG-Scores, CSRD-Reporting
+   - **Alternative Data**: Multi-Country Web-Scraping, EU-Job-Markets, lokale News-Feeds
+   - **Cross-Border Network Effects**: Supply-Chain-Verflechtungen, Handelsbeziehungen
+   - **Real-time Integration**: Alle EU-Börsen, lokale Indizes (CAC, FTSE MIB, AEX)
+   - **Währungsmanagement**: EUR/CHF/GBP-Normalisierung, PPP-Adjustments
 
 3. **Enhanced Automation**
    - Voice-to-Text für Conference-Call-Transkripte  
@@ -1474,7 +1488,49 @@ graph TB
     end
 ```
 
-Diese MVP-Strategie fokussiert auf schnelle Wertschöpfung bei kontrollierten Risiken. Durch iterative Entwicklung und kontinuierliches User-Feedback entsteht eine skalierbare, produktionsbereite Research-Automation-Plattform für deutsche Small- und Mid-Cap-Analysten.
+## Geografische Expansionsstrategie: Deutschland → EU
+
+### Phase 1: Deutschland-Fokus (v1, Q4 2025 - Q1 2026)
+**Rationale**: Lokale Expertise maximieren, regulatorische Komplexität minimieren
+- **Markt-Fokus**: Deutschland (MDAX, SDAX, Scale, m:access)
+- **Sprache**: Primär Deutsch, sekundär Englisch
+- **Regulierung**: BaFin, HGB/IFRS, DGAP-Integration
+- **Datenquellen**: Deutsche IR-Websites, Xetra, deutsche Medien
+- **Zielgruppe**: Deutsche institutionelle Investoren, Family Offices
+- **Success Metrics**: 50+ deutsche Small/Mid-Caps, 80% SDAX-Abdeckung
+
+### Phase 2: EU-Expansion (v2, Q2 2026 - Q4 2026)
+**Rationale**: Bewährte Technologie auf ähnliche EU-Märkte skalieren
+```mermaid
+graph LR
+    A[Deutschland v1<br/>Etabliert] --> B[Frankreich<br/>Q2 2026]
+    A --> C[Italien<br/>Q2 2026]
+    A --> D[Niederlande<br/>Q3 2026]
+    A --> E[Österreich<br/>Q3 2026]
+    A --> F[Schweiz<br/>Q4 2026]
+    
+    B --> G[EU-weite<br/>Peer-Vergleiche]
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+```
+
+**EU-Erweiterungs-Roadmap**:
+1. **Frankreich** (Q2 2026): Euronext Paris Small/Mid-Caps, AMF-Integration
+2. **Italien** (Q2 2026): Borsa Italiana STAR/AIM, CONSOB-Feeds
+3. **Niederlande** (Q3 2026): Euronext Amsterdam, AFM-Regulierung
+4. **Österreich** (Q3 2026): Wiener Börse, FMA-Compliance
+5. **Schweiz** (Q4 2026): SIX Swiss Exchange, FINMA-Integration
+
+**Technische EU-Skalierung**:
+- Multi-Language NLP (DE → FR, IT, NL, EN)
+- Cross-Border Peer-Group-Bildung
+- Währungskonvertierung und PPP-Adjustments
+- EU-weite ESG/CSRD-Integration
+- Harmonisierte MiFID II-Compliance
+
+Diese Deutschland-First-Strategie minimiert initiale Komplexität und maximiert die Erfolgswahrscheinlichkeit, bevor die bewährte Lösung europaweit skaliert wird.
 
 ## Analyseprozesse und Methoden
 
