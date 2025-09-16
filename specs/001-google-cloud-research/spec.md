@@ -3,7 +3,7 @@
 **Feature Branch**: `001-google-cloud-research`
 **Created**: 2025-09-16
 **Status**: Draft
-**Input**: User description: "Entscheiden uns konsequent für Google Cloud und bauen das Research-Produkt agentisch und weitgehend vollautomatisiert darauf auf. Hier eine meinungsstarke, produktionsorientierte Blaupause inkl. Terraform, CI/CD und minimalem LangGraph-Service. Ich priorisiere: **Cloud Run** (Serverless), **Cloud SQL Postgres 16 + pgvector**, **Pub/Sub**, **Document AI**, **Vertex AI** (Embeddings/LLM), **GCS mit Bucket-Lock (WORM)**, **CMEK über Cloud KMS**, **VPC-SC & EU-Data-Boundary (Assured Workloads)**."
+**Input**: User description: "Entscheiden konsequent für Google Cloud, bauen das Research-Produkt agentisch und weitgehend vollautomatisiert auf. Blaupause inkl. Terraform, CI/CD und minimalem LangGraph-Service. Ich priorisiere: **Cloud Run** (Serverless), **Cloud SQL Postgres 16 + pgvector**, **Pub/Sub**, **Document AI**, **Vertex AI** (Embeddings/LLM), **GCS mit Bucket-Lock (WORM)**, **CMEK über Cloud KMS**, **VPC-SC & EU-Data-Boundary (Assured Workloads)**."
 
 ## Execution Flow (main)
 ```
