@@ -1,0 +1,295 @@
+openapi: 3.0.3
+info:
+  title: Research Platform - Research Generation API
+  version: 1.0.0
+  description: API for generating investment research reports using AI agents
+
+servers:
+  - url: https://research-service.example.com/v1
+    description: Research Generation Service
+
+paths:
+  /reports/generate:
+    post:
+      summary: Generate investment research report
+      operationId: generateReport
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [company_id, analyst_id, report_type]
+              properties:
+                company_id:
+                  type: integer
+                  format: int64
+                analyst_id:
+                  type: string
+                report_type:
+                  type: string
+                  enum: [initiation, update, flash_note]
+                include_voice_insights:
+                  type: boolean
+                  default: true
+                custom_prompts:
+                  type: object
+                  additionalProperties:
+                    type: string
+                target_length:
+                  type: string
+                  enum: [short, standard, comprehensive]
+                  default: standard
+      responses:
+        '202':
+          description: Report generation initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report_id:
+                    type: integer
+                    format: int64
+                  status:
+                    type: string
+                    enum: [queued, research, analysis, writing, compliance]
+                  estimated_completion:
+                    type: string
+                    format: date-time
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Company not found
+
+  /reports/{report_id}/status:
+    get:
+      summary: Get report generation status
+      operationId: getReportStatus
+      parameters:
+        - name: report_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Report generation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report_id:
+                    type: integer
+                    format: int64
+                  status:
+                    type: string
+                    enum: [queued, research, analysis, writing, compliance, completed, failed]
+                  progress_percentage:
+                    type: integer
+                    minimum: 0
+                    maximum: 100
+                  current_stage:
+                    type: string
+                  sources_analyzed:
+                    type: integer
+                  peer_companies_analyzed:
+                    type: integer
+                  compliance_status:
+                    type: string
+                    enum: [pending, passed, failed, review_required]
+                  error_message:
+                    type: string
+                    nullable: true
+        '404':
+          description: Report not found
+
+  /reports/{report_id}:
+    get:
+      summary: Retrieve completed research report
+      operationId: getReport
+      parameters:
+        - name: report_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [json, pdf, html]
+            default: json
+      responses:
+        '200':
+          description: Research report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResearchReport'
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Report not found
+        '423':
+          description: Report still being generated
+
+  /voice/record:
+    post:
+      summary: Upload voice recording for analyst insights
+      operationId: uploadVoiceRecording
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [analyst_id, audio_file]
+              properties:
+                analyst_id:
+                  type: string
+                company_id:
+                  type: integer
+                  format: int64
+                  nullable: true
+                recording_type:
+                  type: string
+                  enum: [solo_insight, expert_interview, team_discussion]
+                title:
+                  type: string
+                audio_file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Voice recording uploaded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recording_id:
+                    type: integer
+                    format: int64
+                  transcription_status:
+                    type: string
+                    enum: [pending, processing]
+                  estimated_completion:
+                    type: string
+                    format: date-time
+
+  /voice/{recording_id}/transcript:
+    get:
+      summary: Get voice recording transcript
+      operationId: getTranscript
+      parameters:
+        - name: recording_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Voice transcript
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recording_id:
+                    type: integer
+                    format: int64
+                  status:
+                    type: string
+                    enum: [completed, processing, failed]
+                  transcript_segments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        speaker_id:
+                          type: string
+                        start_time:
+                          type: number
+                          format: float
+                        end_time:
+                          type: number
+                          format: float
+                        text:
+                          type: string
+                        confidence:
+                          type: number
+                          format: float
+
+components:
+  schemas:
+    ResearchReport:
+      type: object
+      properties:
+        report_id:
+          type: integer
+          format: int64
+        company_id:
+          type: integer
+          format: int64
+        analyst_id:
+          type: string
+        title:
+          type: string
+        report_type:
+          type: string
+        investment_thesis:
+          type: string
+        recommendation:
+          type: string
+          enum: [BUY, HOLD, SELL]
+        price_target:
+          type: number
+          format: float
+        risk_rating:
+          type: string
+          enum: [LOW, MEDIUM, HIGH]
+        sections:
+          type: object
+          properties:
+            executive_summary:
+              type: string
+            company_overview:
+              type: string
+            financial_analysis:
+              type: string
+            valuation:
+              type: string
+            risks:
+              type: string
+            recommendation_rationale:
+              type: string
+        source_attribution:
+          type: array
+          items:
+            type: object
+            properties:
+              source_type:
+                type: string
+              source_name:
+                type: string
+              url:
+                type: string
+              accessed_at:
+                type: string
+                format: date-time
+        compliance_status:
+          type: string
+        generated_at:
+          type: string
+          format: date-time
+        published_at:
+          type: string
+          format: date-time
+          nullable: true

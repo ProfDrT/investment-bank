@@ -1,0 +1,183 @@
+openapi: 3.0.3
+info:
+  title: Research Platform - Document Ingestion API
+  version: 1.0.0
+  description: API for ingesting and processing financial documents
+
+servers:
+  - url: https://ingestion-service.example.com/v1
+    description: Document Ingestion Service
+
+paths:
+  /documents/ingest:
+    post:
+      summary: Initiate document ingestion from source
+      operationId: ingestDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [company_id, source_url, document_type]
+              properties:
+                company_id:
+                  type: integer
+                  format: int64
+                  description: Target company identifier
+                source_url:
+                  type: string
+                  format: uri
+                  description: URL to source document
+                document_type:
+                  type: string
+                  enum: [annual_report, earnings_call, press_release, regulatory_filing]
+                source_type:
+                  type: string
+                  enum: [ir_website, regulatory_database, external_feed]
+                  default: ir_website
+                priority:
+                  type: string
+                  enum: [low, normal, high]
+                  default: normal
+      responses:
+        '202':
+          description: Document ingestion initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  document_id:
+                    type: integer
+                    format: int64
+                  status:
+                    type: string
+                    enum: [pending, processing]
+                  estimated_completion:
+                    type: string
+                    format: date-time
+        '400':
+          description: Invalid request parameters
+        '409':
+          description: Document already exists (duplicate hash)
+
+  /documents/{document_id}/status:
+    get:
+      summary: Get document processing status
+      operationId: getDocumentStatus
+      parameters:
+        - name: document_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Document status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  document_id:
+                    type: integer
+                    format: int64
+                  status:
+                    type: string
+                    enum: [pending, processing, completed, failed]
+                  progress_percentage:
+                    type: integer
+                    minimum: 0
+                    maximum: 100
+                  chunks_extracted:
+                    type: integer
+                  extraction_confidence:
+                    type: number
+                    format: float
+                    minimum: 0.0
+                    maximum: 1.0
+                  error_message:
+                    type: string
+                    nullable: true
+        '404':
+          description: Document not found
+
+  /documents/batch:
+    post:
+      summary: Initiate batch document processing
+      operationId: batchIngestDocuments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [company_ids, source_types]
+              properties:
+                company_ids:
+                  type: array
+                  items:
+                    type: integer
+                    format: int64
+                  maxItems: 100
+                source_types:
+                  type: array
+                  items:
+                    type: string
+                    enum: [ir_website, regulatory_database, external_feed]
+                date_range:
+                  type: object
+                  properties:
+                    start_date:
+                      type: string
+                      format: date
+                    end_date:
+                      type: string
+                      format: date
+      responses:
+        '202':
+          description: Batch processing initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  batch_id:
+                    type: string
+                    format: uuid
+                  total_documents:
+                    type: integer
+                  estimated_completion:
+                    type: string
+                    format: date-time
+
+components:
+  schemas:
+    DocumentMetadata:
+      type: object
+      properties:
+        title:
+          type: string
+        publication_date:
+          type: string
+          format: date
+        file_size:
+          type: integer
+        mime_type:
+          type: string
+        language:
+          type: string
+        pages:
+          type: integer
+
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
