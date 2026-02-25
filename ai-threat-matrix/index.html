@@ -587,6 +587,48 @@
   }
   .risk-bar-label .risk-warn { color: #E20046; font-weight: 600; }
 
+  /* === AUTHOR BYLINE === */
+  .author-byline {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 40px;
+    background: #f9fbfc;
+    border-bottom: 1px solid #E3EDE7;
+  }
+  .author-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ABC4D2;
+    flex-shrink: 0;
+  }
+  .author-info {
+    font-size: 13px;
+    color: #315872;
+    line-height: 1.5;
+  }
+  .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #12203F;
+    display: block;
+  }
+  .author-role {
+    font-size: 12px;
+    color: #315872;
+    display: block;
+    margin-top: 1px;
+  }
+  .author-date {
+    font-size: 11px;
+    color: #ABC4D2;
+    margin-top: 4px;
+    display: block;
+  }
+
   /* === RESPONSIVE === */
   @media (max-width: 700px) {
     .masthead, .content, .footer { padding-left: 20px; padding-right: 20px; }
@@ -612,6 +654,16 @@
     <div class="masthead-title">The AI Threat Matrix</div>
     <div class="masthead-subtitle">Warum die eigentlichen AI-Risiken für börsennotierte Unternehmen dort lauern, wo niemand hinschaut — und was das für die Bewertung bedeutet.</div>
   </header>
+
+  <!-- ========== AUTHOR BYLINE ========== -->
+  <div class="author-byline">
+    <img class="author-photo" src="figures/blask_headshot.jpg" alt="Prof. Dr. Tobias Blask">
+    <div class="author-info">
+      <span class="author-name">Prof. Dr. Tobias Blask</span>
+      <span class="author-role">Academic Perspective & Framework Development · MPCM Research</span>
+      <span class="author-date">Februar 2026</span>
+    </div>
+  </div>
 
   <!-- ========== CONTENT ========== -->
   <div class="content">
