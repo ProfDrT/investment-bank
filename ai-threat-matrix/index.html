@@ -629,11 +629,73 @@
     display: block;
   }
 
+  /* === SCENARIO GRID === */
+  .scenario-grid {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0 20px;
+  }
+  .scenario {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .scenario-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 7px;
+    margin-bottom: 6px;
+  }
+  .scenario p { margin-bottom: 0; font-size: 12px; }
+  .scenario-base {
+    background: #f0f7f0;
+    border-left: 3px solid #C2EABD;
+  }
+  .scenario-base .scenario-label {
+    background: #C2EABD;
+    color: #1a5c2e;
+  }
+  .scenario-central {
+    background: #f0f5f8;
+    border-left: 3px solid #315872;
+  }
+  .scenario-central .scenario-label {
+    background: #ABC4D2;
+    color: #12203F;
+  }
+  .scenario-extreme {
+    background: #fdf2f5;
+    border-left: 3px solid #E20046;
+  }
+  .scenario-extreme .scenario-label {
+    background: rgba(226,0,70,0.12);
+    color: #E20046;
+  }
+  .archetype-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 28px;
+    margin-bottom: 4px;
+  }
+  .archetype-header h3 { margin: 0; }
+  .archetype-intro {
+    font-size: 13px;
+    color: #315872;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
   /* === RESPONSIVE === */
   @media (max-width: 700px) {
     .masthead, .content, .footer { padding-left: 20px; padding-right: 20px; }
     .masthead-title { font-size: 24px; }
-    .orders-row, .cascade-steps, .two-col { flex-direction: column; }
+    .orders-row, .cascade-steps, .two-col, .scenario-grid { flex-direction: column; }
     .order-card:not(:last-child)::after { content: '↓'; right: 50%; transform: translateX(50%); top: auto; bottom: -14px; }
   }
 </style>
@@ -712,7 +774,7 @@
     <!-- HEATMAP -->
     <h2>Das AI Threat Matrix im Überblick</h2>
 
-    <p>Acht Geschäftsmodell-Archetypen, drei Disruptionsordnungen. Das Muster ist auffällig: Viele Sektoren haben <strong>niedrige</strong> First-Order-Risiken — aber <strong>hohe</strong> Second- und Third-Order-Risiken. Genau diese Asymmetrie verdient mehr analytische Aufmerksamkeit.</p>
+    <p>Acht Geschäftsmodell-Archetypen, drei Disruptionsordnungen. Für jeden modellieren wir drei Szenarien: einen Basisfall (das Geschäft bleibt weitgehend unberührt), ein Zentralszenario (der wahrscheinlichste Pfad — der unser Heatmap-Rating bestimmt) und einen Extremfall. Das Muster ist auffällig: Viele Sektoren haben <strong>niedrige</strong> First-Order-Risiken — aber <strong>hohe</strong> Third-Order-Risiken. Genau diese Asymmetrie verdient mehr analytische Aufmerksamkeit.</p>
 
     <table class="heatmap-table">
       <thead>
@@ -727,40 +789,184 @@
         <tr><td>Content & Media</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
         <tr><td>Professional Services</td><td class="sev-h">HOCH</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td></tr>
         <tr><td>Infrastruktur & Hosting</td><td class="sev-l">NIEDRIG</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
-        <tr><td>E-Commerce & Marktplätze</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>E-Commerce & Marktplätze</td><td class="sev-l">NIEDRIG</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td></tr>
         <tr><td>Finanz-Intermediation</td><td class="sev-h">HOCH</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td></tr>
-        <tr><td>Education & Training</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
-        <tr><td>SaaS & Enterprise Software</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
-        <tr><td>Manufacturing & Industrial</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td></tr>
+        <tr><td>Education & Training</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td><td class="sev-m">MITTEL</td></tr>
+        <tr><td>SaaS & Enterprise Software</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>Manufacturing & Industrial</td><td class="sev-l">NIEDRIG</td><td class="sev-l">NIEDRIG</td><td class="sev-m">MITTEL</td></tr>
       </tbody>
     </table>
 
-    <!-- ARCHETYPE ELABORATIONS -->
+    <!-- ARCHETYPE ELABORATIONS — DREI SZENARIEN -->
     <div style="margin-top:24px;">
 
-      <h3>Content & Media <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH · HOCH</span></h3>
-      <p style="font-size:14px;">Dreifach-Alarm. Generative AI automatisiert Textproduktion, Bildgenerierung und Video-Editing (1. Ordnung). Gleichzeitig migrieren Nutzer zu AI-generierten Feeds und Zusammenfassungen — Reichweite und Werbeerlöse erodieren (2. Ordnung). Langfristig kollabiert das Aggregationsmodell: Warum eine Nachrichtenseite besuchen, wenn die AI die Antwort hat? Chegg (−99% seit ChatGPT-Launch) ist das Warnsignal.</p>
+      <!-- 1. Content & Media -->
+      <div class="archetype-header">
+        <h3>Content & Media</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; color:#E20046; letter-spacing:0.5px;">HOCH · HOCH · HOCH</span>
+      </div>
+      <p class="archetype-intro">Die volle Kaskade trifft hier am härtesten — Produktion, Distribution und Monetarisierung sind alle verwundbar.</p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>AI ist ein Produktionswerkzeug, kein Ersatz. Studios, Verlage und Marken kontrollieren Distribution und Publikumsvertrauen. AI senkt Kosten, aber menschliche Kreative behalten ihre redaktionelle Autorität. Werbemodelle bestehen fort.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>Generative AI flutet das Content-Angebot, Ad-CPMs kollabieren. Nutzer migrieren zu AI-kuratierten Feeds und Zusammenfassungen — Verlage verlieren Reichweite und das Werbemodell erodiert. Chegg (−99% seit ChatGPT-Launch) ist der Kanarienvogel.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>Content wird effektiv kostenlos. AI generiert personalisierte Medien on demand — Artikel, Video, Musik — zugeschnitten auf jeden Nutzer. Niemand besucht mehr Verlage. Die gesamte Medien-Wertschöpfungskette kollabiert auf die Modellebene.</p>
+        </div>
+      </div>
 
-      <h3>Professional Services <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · MITTEL · HOCH</span></h3>
-      <p style="font-size:14px;">AI ersetzt Research, Drafting und Due Diligence — das Herz vieler Beratungs- und Kanzleimodelle (1. Ordnung). Mandanten rüsten sich selbst mit AI auf und bringen Arbeit in-house; Stundensätze geraten unter Druck (2. Ordnung). Dritte Ordnung: Die Branche konsolidiert radikal — AI-native Plattformen kombinieren automatisierte Produktion mit menschlicher Qualitätskontrolle und verdrängen klassische Partnership-Modelle.</p>
+      <!-- 2. Professional Services -->
+      <div class="archetype-header">
+        <h3>Professional Services</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#E20046;">HOCH</span> · <span style="color:#315872;">MITTEL</span> · <span style="color:#E20046;">HOCH</span></span>
+      </div>
+      <p class="archetype-intro">Das Paradox: Der Commodity-Kern ist hochgradig exponiert, aber Beziehungskapital bietet einen partiellen Schutzschild.</p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>Regulatorische Komplexität und Vertrauensbeziehungen schützen traditionelle Modelle. AI übernimmt Commodity-Aufgaben (Dokumentenprüfung, Basis-Research), aber Beratungsbeziehungen bleiben intakt. Firmen integrieren AI als Effizienzhebel.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>AI ersetzt Research, Drafting und Due Diligence — das Commodity-Herz von Beratungs- und Kanzleimodellen. Mandanten rüsten sich mit AI auf und holen Arbeit in-house. Stundensätze komprimieren sich, aber beziehungsgetriebene Beratung überlebt an der Spitze.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>AI-native Plattformen kombinieren automatisierte Produktion mit menschlicher QC und zerstören traditionelle Partnership-Modelle. Die Big Four werden die Big Two. Ganze Junior-Professional-Ebenen werden eliminiert.</p>
+        </div>
+      </div>
 
-      <h3>Infrastruktur & Hosting <span style="font-size:12px; color:#C2EABD; font-weight:700;">NIEDRIG</span> · <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH</span></h3>
-      <p style="font-size:14px;">Der perfekte Kaskaden-Case. Die direkte AI-Bedrohung ist trivial — AI-Website-Builder sind inkrementell. Aber wenn Konsumenten über AI-Assistenten Informationen abrufen, ohne Websites zu besuchen, sinkt der Traffic (2. Ordnung). Der gesamte Hosting-Markt verschiebt sich von Website-Hosting zu Data/API-Hosting (3. Ordnung). <em>→ Detaillierte IONOS-Analyse unten.</em></p>
+      <!-- 3. Infrastruktur & Hosting -->
+      <div class="archetype-header">
+        <h3>Infrastruktur & Hosting</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#C2EABD;">NIEDRIG</span> · <span style="color:#E20046;">HOCH</span> · <span style="color:#E20046;">HOCH</span></span>
+      </div>
+      <p class="archetype-intro">Der perfekte Kaskaden-Case — triviales First-Order-Risiko maskiert existenzielle Second- und Third-Order-Exposition. <em>→ Detaillierte IONOS-Analyse unten.</em></p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>AI-Website-Builder sind inkrementelle Verbesserungen. Hosting-Anbieter integrieren sie und verkaufen sie als Upsell. Domain-Lock-in besteht fort, der KMU-Kundenstamm bleibt klebrig. Business as usual mit besseren Tools.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>Die Zero-Click Economy erodiert Website-Traffic. AI-Assistenten liefern Antworten ohne Besuch — die Websites von Friseuren, Handwerkern, Steuerberatern verlieren ihren Zweck. KMUs hinterfragen Hosting-Ausgaben. ~60% des Umsatzes unter strukturellem Druck.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>Das Hosting-Paradigma verschiebt sich komplett — von Website-Hosting (Präsentationsschicht) zu Data/API-Hosting (Datenschicht für AI-Konsumption). Hyperscaler dominieren den neuen Markt. Traditionelles Hosting wird zum Legacy-Geschäft.</p>
+        </div>
+      </div>
 
-      <h3>E-Commerce & Marktplätze <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL</span> · <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH</span></h3>
-      <p style="font-size:14px;">Listing-Optimierung und dynamisches Pricing sind automatisierbar, aber nicht existenzkritisch (1. Ordnung). Gefährlicher: AI-Shopping-Agenten, die für Konsumenten einkaufen, umgehen die Marktplatz-Oberfläche komplett — Etsy, Zalando, Amazon verlieren die Kundenbeziehung (2. Ordnung). Langfristig droht Disintermediation: Der AI-Agent verhandelt direkt mit Herstellern (3. Ordnung).</p>
+      <!-- 4. E-Commerce & Marktplätze -->
+      <div class="archetype-header">
+        <h3>E-Commerce & Marktplätze</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#C2EABD;">NIEDRIG</span> · <span style="color:#315872;">MITTEL</span> · <span style="color:#E20046;">HOCH</span></span>
+      </div>
+      <p class="archetype-intro">In Ordnung 1–2 nach unten korrigiert: AI stärkt Plattformen mehr als es sie bedroht — bis es das nicht mehr tut.</p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>AI verbessert Produktsuche, dynamisches Pricing und Logistikoptimierung — alles stärkt die Plattformen, bedroht sie nicht. Netzwerkeffekte und Fulfillment-Burggräben (Amazon, Zalando) bestehen fort und vertiefen sich.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>AI-Shopping-Agenten vermitteln zunehmend Käufe, operieren aber noch innerhalb der Marktplatz-APIs. Plattformen mit Fulfillment-Kontrolle behalten Leverage; reine Aggregatoren ohne Logistik erleiden Margeneinbrüche. Discovery verschiebt sich, Transaktionen bleiben.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>AI-Agenten verhandeln direkt mit Herstellern und umgehen Marktplätze vollständig. Der Marktplatz als „Discovery Layer" wird irrelevant. Nur Plattformen mit physischer Infrastruktur (Lagerhaltung, Lieferung) behalten Wert.</p>
+        </div>
+      </div>
 
-      <h3>Finanz-Intermediation <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH</span> · <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL · MITTEL</span></h3>
-      <p style="font-size:14px;">Underwriting, Kreditprüfung und Compliance sind hochgradig automatisierbar (1. Ordnung). Die Verhaltensänderung ist moderater — Finanzentscheidungen bleiben vertrauenssensitiv (2. Ordnung). Aber Embedded Finance (Checkout-Lending, API-Banking) verschiebt Wertschöpfung weg von klassischen Intermediären hin zu Plattformen (3. Ordnung). Regulierung bremst die Kaskade — aber verzögert sie nur.</p>
+      <!-- 5. Finanz-Intermediation -->
+      <div class="archetype-header">
+        <h3>Finanz-Intermediation</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#E20046;">HOCH</span> · <span style="color:#315872;">MITTEL</span> · <span style="color:#315872;">MITTEL</span></span>
+      </div>
+      <p class="archetype-intro">Hohe Automatisierungsexposition auf Task-Ebene, aber Regulierung und Vertrauen schaffen eine strukturelle Bremse für die Kaskade.</p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>Regulatorische Barrieren und Vertrauensanforderungen schützen Incumbents. AI verbessert interne Effizienz (Underwriting, Compliance), verändert aber die Kundenbeziehung oder Marktstruktur nicht fundamental.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>Underwriting, Kreditprüfung und Compliance werden hochautomatisiert. Embedded Finance (Checkout-Lending, API-Banking) verschiebt Wertschöpfung von Intermediären zu Plattformen. Regulierung bremst die Kaskade — verzögert sie aber nur.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>AI-native Finanzagenten übernehmen alle Konsumentenfinanzen innerhalb von Plattform-Ökosystemen — Versicherung, Investment, Kreditvergabe. Traditionelle Intermediäre werden zu reinen Bilanz-Utilities, beraubt der Beratungsschicht.</p>
+        </div>
+      </div>
 
-      <h3>Education & Training <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH · HOCH</span></h3>
-      <p style="font-size:14px;">Zweiter Dreifach-Alarm. AI-Tutoren und Auto-Grading substituieren Kernleistungen (1. Ordnung). Studierende nutzen AI direkt — warum ein Kursabo kaufen, wenn ChatGPT das Gleiche kann? (2. Ordnung). Dritte Ordnung: Das Credentialing-Modell selbst steht in Frage — wenn AI Wissen on-demand liefert, was ist ein Zertifikat noch wert? Pearson und Chegg sind die Kanarienvögel.</p>
+      <!-- 6. Education & Training -->
+      <div class="archetype-header">
+        <h3>Education & Training</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#E20046;">HOCH</span> · <span style="color:#E20046;">HOCH</span> · <span style="color:#315872;">MITTEL</span></span>
+      </div>
+      <p class="archetype-intro">Neu bewertet: dritte Ordnung herabgestuft. Das Credentialing-Modell ist tiefer in institutionelle Strukturen eingebettet als ursprünglich geschätzt.</p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>Zertifikatswert und institutionelles Prestige schützen den Kern. AI-Tutoren sind Ergänzungen, keine Substitute. Akkreditierungsrahmen bleiben rigide, und Arbeitgeber verlangen weiterhin formale Qualifikationen.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>AI-Tutoren und Auto-Grading substituieren Kerninstruktionsleistungen. Studierende umgehen Kursplattformen für direkte AI-Interaktion — warum für ein Abo zahlen, wenn ChatGPT das Gleiche lehrt? Enrollment in Commodity-Content-Kursen sinkt stark. Pearson und Chegg sind die Kanarienvögel.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>AI-verifizierte Kompetenzprüfungen beginnen traditionelle Zertifizierungen herauszufordern. Aber tief eingebettetes institutionelles Prestige — Universitäten, Berufsverbände, regulatorische Anforderungen — widersteht voller Disruption. Das Credential bricht an, aber zerbricht nicht.</p>
+        </div>
+      </div>
 
-      <h3>SaaS & Enterprise Software <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL</span> · <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH</span></h3>
-      <p style="font-size:14px;">AI-Features automatisieren vertikale SaaS-Funktionen — nützlich, aber kein Differenzierungsmerkmal mehr (1. Ordnung). Gravierender: General-purpose AI ersetzt spezialisierte Software ganz — warum ein CRM-Tool kaufen, wenn ein AI-Agent das übernimmt? (2. Ordnung). Dritte Ordnung: Der „SaaS Collapse" — ganze Softwarekategorien werden von AI-Plattformen absorbiert. <em>→ Detaillierte SAP-Analyse unten.</em></p>
+      <!-- 7. SaaS & Enterprise Software -->
+      <div class="archetype-header">
+        <h3>SaaS & Enterprise Software</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#315872;">MITTEL</span> · <span style="color:#315872;">MITTEL</span> · <span style="color:#E20046;">HOCH</span></span>
+      </div>
+      <p class="archetype-intro">Neu bewertet: zweite Ordnung herabgestuft. Enterprise-Switching-Costs und Beschaffungsträgheit sind stärkere Bremsen als ursprünglich modelliert. <em>→ Detaillierte SAP-Analyse unten.</em></p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>Enterprise-Switching-Costs und Daten-Lock-in schützen Incumbents. AI-Features werden Table Stakes, bedrohen aber das SaaS-Modell selbst nicht. Incumbents wie SAP, Salesforce, ServiceNow integrieren AI und behalten Pricing Power.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>AI-Copiloten automatisieren Workflows innerhalb bestehender Software. Einige vertikale SaaS-Kategorien erleiden Feature-Absorption, aber Enterprise-Beschaffungsträgheit und Integrationskomplexität verlangsamen die Verdrängung. Der Burggraben ist organisatorisch, nicht technisch.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>General-purpose AI-Plattformen absorbieren ganze Softwarekategorien — der „SaaS Collapse". Warum ein CRM kaufen, wenn ein AI-Agent das nativ erledigt? Ganze Mid-Market-SaaS-Schichten verschwinden. Nur infrastrukturnahe Plattformen überleben.</p>
+        </div>
+      </div>
 
-      <h3>Manufacturing & Industrial <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL · MITTEL · MITTEL</span></h3>
-      <p style="font-size:14px;">Der resilienteste Archetyp. Produktionsoptimierung durch AI bringt Effizienzgewinne, aber physische Assets sind nicht digital substituierbar (1. Ordnung). AI-gesteuerte Beschaffung verändert Lieferantenbeziehungen graduell (2. Ordnung). Supply-Chain-Rekonfigurationen sind real, aber langsamer und weniger disruptiv als in digitalen Geschäftsmodellen (3. Ordnung). Mittleres Risiko — aber kein Freifahrtschein.</p>
+      <!-- 8. Manufacturing & Industrial -->
+      <div class="archetype-header">
+        <h3>Manufacturing & Industrial</h3>
+        <span style="font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.5px;"><span style="color:#C2EABD;">NIEDRIG</span> · <span style="color:#C2EABD;">NIEDRIG</span> · <span style="color:#315872;">MITTEL</span></span>
+      </div>
+      <p class="archetype-intro">Signifikant nach unten korrigiert. Der Burggraben besteht aus Atomen, nicht Bits — und Atome widerstehen digitaler Disruption.</p>
+      <div class="scenario-grid">
+        <div class="scenario scenario-base">
+          <div class="scenario-label">Basisfall</div>
+          <p>Physische Produktion ist inhärent AI-resistent. Robotik-Automatisierung ist inkrementell und kapitalintensiv. Die installierte Basis schafft eine lange Übergangszeit. AI ist ein Werkzeug für operative Effizienz, kein Bedrohungsvektor.</p>
+        </div>
+        <div class="scenario scenario-central">
+          <div class="scenario-label">Zentralszenario</div>
+          <p>AI optimiert Predictive Maintenance, Qualitätskontrolle und Supply-Chain-Planung — Effizienzgewinne, keine Disruption. Physische Assets können nicht digital substituiert werden. Die Industrie profitiert mehr von AI als sie darunter leidet.</p>
+        </div>
+        <div class="scenario scenario-extreme">
+          <div class="scenario-label">Extremfall</div>
+          <p>Vollautonome Fabriken und AI-orchestrierte Supply Chains restrukturieren globale Fertigungsnetzwerke. Reshoring beschleunigt sich. Aber die Timeline ist Dekaden, nicht Jahre — und die installierte Basis erzeugt enorme Trägheit.</p>
+        </div>
+      </div>
 
     </div>
 
