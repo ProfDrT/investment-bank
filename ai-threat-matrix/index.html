@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Threat Matrix — MPCM Research Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     MPCM CORPORATE DESIGN — HTML NEWSLETTER
+     Colors: Deep Fjord #12203F | Slate Current #315872
+     Harbor Mist #ABC4D2 | Nordic Crimson #E20046
+     Meadow Mint #C2EABD | Silver Sage #E3EDE7
+     Typography: Raleway (headlines) + Source Sans 3 (body)
+     Design: Sharp corners, clean, professional
+     ============================================ */
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #315872;
+    background: #f3f6fb;
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .newsletter-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* === MASTHEAD === */
+  .masthead {
+    background: #12203F;
+    padding: 28px 40px 24px;
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: #E20046;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .masthead-logo img {
+    height: 36px;
+    display: block;
+  }
+  .masthead-meta {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ABC4D2;
+  }
+  .masthead-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .masthead-subtitle {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    color: #ABC4D2;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .masthead-edition {
+    display: inline-block;
+    background: #E20046;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+
+  /* === CONTENT AREA === */
+  .content {
+    padding: 36px 40px;
+  }
+  .content p {
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #12203F;
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  h2::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: #E20046;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #12203F;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  .lead {
+    font-size: 19px;
+    font-weight: 600;
+    color: #12203F;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  strong { color: #12203F; }
+
+  /* === SECTION DIVIDER === */
+  .section-divider {
+    height: 1px;
+    background: #ABC4D2;
+    margin: 32px 0;
+    opacity: 0.5;
+  }
+
+  /* === INSIGHT BOX === */
+  .insight-box {
+    background: #E3EDE7;
+    border-left: 4px solid #12203F;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .insight-box .insight-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #12203F;
+    margin-bottom: 6px;
+  }
+  .insight-box p {
+    margin-bottom: 0;
+    color: #12203F;
+    font-weight: 400;
+  }
+
+  /* === CRIMSON CALLOUT === */
+  .crimson-callout {
+    background: #12203F;
+    color: #ffffff;
+    padding: 24px 28px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .crimson-callout::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: #E20046;
+  }
+  .crimson-callout .callout-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #E20046;
+    margin-bottom: 8px;
+  }
+  .crimson-callout p, .crimson-callout li {
+    color: #ABC4D2;
+    margin-bottom: 6px;
+  }
+  .crimson-callout strong {
+    color: #ffffff;
+  }
+
+  /* === THREE ORDERS DIAGRAM === */
+  .orders-row {
+    display: flex;
+    gap: 0;
+    margin: 20px 0;
+  }
+  .order-card {
+    flex: 1;
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+  }
+  .order-card:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #12203F;
+    font-weight: 700;
+    z-index: 1;
+  }
+  .order-1 { background: #E3EDE7; }
+  .order-2 { background: #ABC4D2; }
+  .order-3 { background: #12203F; color: #ffffff; }
+  .order-3 .order-sub { color: #ABC4D2; }
+  .order-num {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: #12203F;
+  }
+  .order-3 .order-num { color: #E20046; }
+  .order-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 4px 0;
+    color: #12203F;
+  }
+  .order-3 .order-label { color: #ffffff; }
+  .order-sub {
+    font-size: 12px;
+    color: #315872;
+    line-height: 1.4;
+  }
+
+  /* === HEATMAP TABLE === */
+  .heatmap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .heatmap-table th {
+    background: #12203F;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .heatmap-table th:first-child { text-align: left; }
+  .heatmap-table td {
+    padding: 9px 12px;
+    text-align: center;
+    border-bottom: 1px solid #E3EDE7;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .heatmap-table td:first-child {
+    text-align: left;
+    color: #12203F;
+    font-weight: 600;
+  }
+  .heatmap-table tr:nth-child(even) { background: #f9fbfc; }
+  .sev-h { background: rgba(226, 0, 70, 0.12) !important; color: #E20046; }
+  .sev-m { background: rgba(49, 88, 114, 0.12) !important; color: #315872; }
+  .sev-l { background: rgba(194, 234, 189, 0.35) !important; color: #388E3C; }
+
+  /* === CASE BOX === */
+  .case-box {
+    border: 1px solid #ABC4D2;
+    margin: 24px 0;
+  }
+  .case-header {
+    background: #12203F;
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .case-header h3 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 16px;
+  }
+  .case-tag {
+    display: inline-block;
+    background: #E20046;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+  }
+  .case-body {
+    padding: 20px 22px;
+  }
+
+  /* === CASCADE STEPS === */
+  .cascade-steps {
+    display: flex;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .cascade-step {
+    flex: 1;
+    padding: 14px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .cascade-step .step-order {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cascade-step .step-sev {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 6px;
+    margin-bottom: 6px;
+  }
+  .step-low { background: #E3EDE7; }
+  .step-low .step-order { color: #388E3C; }
+  .step-low .step-sev { background: #C2EABD; color: #1a5c2e; }
+  .step-med { background: #f0f5f8; border-left: 3px solid #315872; }
+  .step-med .step-order { color: #315872; }
+  .step-med .step-sev { background: #ABC4D2; color: #12203F; }
+  .step-high { background: #12203F; color: #ABC4D2; }
+  .step-high .step-order { color: #E20046; }
+  .step-high .step-sev { background: #E20046; color: #fff; }
+  .step-high strong { color: #fff; }
+
+  /* === FIGURE === */
+  .figure-wrap {
+    margin: 16px 0;
+    text-align: center;
+  }
+  .figure-wrap img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  .figure-caption {
+    font-size: 12px;
+    color: #315872;
+    font-style: italic;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  /* === TWO-COL LAYOUT === */
+  .two-col {
+    display: flex;
+    gap: 24px;
+    margin: 16px 0;
+  }
+  .two-col > div { flex: 1; }
+
+  /* === VALUATION PILL === */
+  .val-pill {
+    display: inline-block;
+    background: #E3EDE7;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #12203F;
+    padding: 4px 12px;
+    margin: 2px 4px 2px 0;
+  }
+
+  /* === BOTTOM LINE BOX === */
+  .bottom-line {
+    background: #12203F;
+    padding: 28px 32px;
+    margin: 28px 0 0;
+    position: relative;
+  }
+  .bottom-line::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #E20046;
+  }
+  .bottom-line h2 {
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  .bottom-line h2::after { background: #E20046; }
+  .bottom-line p, .bottom-line li {
+    color: #ABC4D2;
+  }
+  .bottom-line strong {
+    color: #ffffff;
+  }
+  .bottom-line ol {
+    padding-left: 18px;
+    margin-top: 14px;
+  }
+  .bottom-line li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .bottom-line .question {
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .bottom-line .annotation {
+    font-size: 13px;
+    color: #ABC4D2;
+    font-style: italic;
+  }
+
+  /* === SERIES TEASER === */
+  .series-teaser {
+    background: #E3EDE7;
+    padding: 20px 24px;
+    margin: 0;
+    border-left: 4px solid #C2EABD;
+  }
+  .series-teaser .series-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #12203F;
+    margin-bottom: 6px;
+  }
+  .series-teaser p {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #12203F;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    background: #12203F;
+    padding: 24px 40px;
+    border-top: 3px solid #E20046;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .footer-logo img { height: 28px; }
+  .footer-contact {
+    text-align: right;
+    font-size: 12px;
+    color: #ABC4D2;
+    line-height: 1.6;
+  }
+  .footer-contact a { color: #ABC4D2; text-decoration: none; }
+  .footer-divider {
+    height: 1px;
+    background: #315872;
+    margin: 12px 0;
+  }
+  .footer-legal {
+    font-size: 11px;
+    color: #315872;
+    line-height: 1.5;
+  }
+  .footer-authors {
+    margin-bottom: 14px;
+  }
+  .footer-authors p {
+    font-size: 13px;
+    color: #ABC4D2;
+    margin-bottom: 2px;
+  }
+  .footer-authors strong { color: #ffffff; }
+
+  /* === BUSINESS MODEL OVERVIEW === */
+  .bm-overview {
+    background: #f9fbfc;
+    border: 1px solid #ABC4D2;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .bm-kpis {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .bm-kpi {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+    padding: 10px 8px;
+    background: #ffffff;
+    border: 1px solid #E3EDE7;
+  }
+  .bm-kpi .kpi-val {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #12203F;
+    display: block;
+  }
+  .bm-kpi .kpi-label {
+    font-size: 11px;
+    color: #315872;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .revenue-bars {
+    margin: 10px 0;
+  }
+  .rev-bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .rev-bar-label {
+    width: 160px;
+    color: #12203F;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .rev-bar-track {
+    flex: 1;
+    height: 22px;
+    background: #E3EDE7;
+    position: relative;
+  }
+  .rev-bar-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #12203F;
+  }
+  .rev-bar-fill.fill-primary { background: #ABC4D2; }
+  .rev-bar-fill.fill-secondary { background: #E3EDE7; border-right: 1px solid #ABC4D2; }
+  .rev-bar-fill.fill-cloud { background: #C2EABD; }
+  .rev-bar-fill.fill-risk { background: rgba(226, 0, 70, 0.15); }
+  .bm-moat {
+    font-size: 12px;
+    color: #315872;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #E3EDE7;
+  }
+  .bm-moat strong { font-size: 12px; }
+  .risk-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-top: 4px;
+    color: #315872;
+  }
+  .risk-bar-label .risk-warn { color: #E20046; font-weight: 600; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 700px) {
+    .masthead, .content, .footer { padding-left: 20px; padding-right: 20px; }
+    .masthead-title { font-size: 24px; }
+    .orders-row, .cascade-steps, .two-col { flex-direction: column; }
+    .order-card:not(:last-child)::after { content: '↓'; right: 50%; transform: translateX(50%); top: auto; bottom: -14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="newsletter-wrapper">
+
+  <!-- ========== MASTHEAD ========== -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="masthead-logo">
+        <img src="figures/mpcm_logo_white.png" alt="MPCM Logo">
+      </div>
+      <div class="masthead-meta">Research Briefing</div>
+    </div>
+    <div class="masthead-edition">Ausgabe #1 · AI & Unternehmensbewertung</div>
+    <div class="masthead-title">The AI Threat Matrix</div>
+    <div class="masthead-subtitle">Warum die eigentlichen AI-Risiken für börsennotierte Unternehmen dort lauern, wo niemand hinschaut — und was das für die Bewertung bedeutet.</div>
+  </header>
+
+  <!-- ========== CONTENT ========== -->
+  <div class="content">
+
+    <!-- LEAD -->
+    <p class="lead">Als das Auto erfunden wurde, konnte man Tankstellen vorhersagen. Aber nicht Los Angeles.</p>
+
+    <p>Das ist der Kern des Problems. <strong>First-Order-Effekte von Erfindungen sind vorhersagbar.</strong> Autos brauchen Treibstoff → Tankstellen. Das ist trivial. Aber Autos haben auch Suburbia ermöglicht, Walmart möglich gemacht, Los Angeles geformt und die geopolitische Bedeutung des Nahen Ostens fundamental verändert. <em>Diese</em> Effekte — zweiter und dritter Ordnung — hat niemand kommen sehen.</p>
+
+    <p>Genau das passiert gerade mit AI. In der Bewertungsanalyse konzentrieren wir uns — verständlicherweise — auf die Tankstellen: <strong>Welche Aufgaben kann AI automatisieren?</strong> Welche Jobs fallen weg? Was bedeutet das für Margen? Das sind die richtigen Fragen. Aber es sind die einfachen Fragen. Die schwierigeren — und für die Bewertung möglicherweise relevanteren — lauten: Was passiert <em>danach</em>? Was geschieht, wenn AI nicht die Arbeit ersetzt, sondern das Verhalten von Kunden verändert, Lieferketten rekonfiguriert und ganze Märkte umschreibt?</p>
+
+    <p>Dieses Briefing stellt das <strong>AI Threat Matrix</strong> vor — ein Framework, das AI-Disruption in drei Ordnungen klassifiziert und auf acht Geschäftsmodell-Archetypen börsennotierter Unternehmen mappt. <strong>Es trennt die Tankstellen von Los Angeles.</strong></p>
+
+    <div class="insight-box">
+      <div class="insight-label">Kernthese</div>
+      <p>Wir analysieren die Tankstellen gründlich — direkte Automatisierung, Jobeffekte, Effizienzgewinne. Aber wir müssen unseren analytischen Rahmen erweitern: Die <strong>Los-Angeles-Effekte</strong> — Veränderungen im Kundenverhalten, strukturelle Marktverschiebungen, das Obsolet-Werden ganzer Geschäftsmodelle — verdienen systematisch mehr Aufmerksamkeit in der Bewertungsanalyse.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- THREE ORDERS -->
+    <h2>Drei Ordnungen der AI-Disruption</h2>
+
+    <div class="orders-row">
+      <div class="order-card order-1">
+        <div class="order-num">1.</div>
+        <div class="order-label">Direkte Substitution</div>
+        <div class="order-sub">AI übernimmt Aufgaben <em>innerhalb</em> des Unternehmens.<br>Zeithorizont: 0–3 Jahre<br><strong>Sichtbarkeit: HOCH</strong></div>
+      </div>
+      <div class="order-card order-2">
+        <div class="order-num">2.</div>
+        <div class="order-label">Verhaltens&shy;änderungen</div>
+        <div class="order-sub">AI verändert, was Kunden, Zulieferer und Partner <em>tun</em>.<br>Zeithorizont: 2–7 Jahre<br><strong>Sichtbarkeit: MITTEL</strong></div>
+      </div>
+      <div class="order-card order-3">
+        <div class="order-num">3.</div>
+        <div class="order-label">Strukturelle Rekonfiguration</div>
+        <div class="order-sub">Märkte rekonfigurieren sich. Geschäftsmodelle werden obsolet.<br>Zeithorizont: 5–15 Jahre<br><strong style="color:#E20046;">Sichtbarkeit: NIEDRIG</strong></div>
+      </div>
+    </div>
+
+    <p>Entscheidend ist: Die drei Ordnungen sind kein Menü, aus dem man wählt. Sie sind eine <strong>Kaskade</strong>. Erste Ordnung löst zweite aus, zweite löst dritte aus. Tankstelle → Suburbia → Los Angeles. Und bei AI beschleunigt sich diese Kaskade — weil Software schneller skaliert als Asphalt.</p>
+
+    <div class="section-divider"></div>
+
+    <!-- HEATMAP -->
+    <h2>Das AI Threat Matrix im Überblick</h2>
+
+    <p>Acht Geschäftsmodell-Archetypen, drei Disruptionsordnungen. Das Muster ist auffällig: Viele Sektoren haben <strong>niedrige</strong> First-Order-Risiken — aber <strong>hohe</strong> Second- und Third-Order-Risiken. Genau diese Asymmetrie verdient mehr analytische Aufmerksamkeit.</p>
+
+    <table class="heatmap-table">
+      <thead>
+        <tr>
+          <th>Geschäftsmodell</th>
+          <th>1. Ordnung</th>
+          <th>2. Ordnung</th>
+          <th>3. Ordnung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Content & Media</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>Professional Services</td><td class="sev-h">HOCH</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>Infrastruktur & Hosting</td><td class="sev-l">NIEDRIG</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>E-Commerce & Marktplätze</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>Finanz-Intermediation</td><td class="sev-h">HOCH</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td></tr>
+        <tr><td>Education & Training</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>SaaS & Enterprise Software</td><td class="sev-m">MITTEL</td><td class="sev-h">HOCH</td><td class="sev-h">HOCH</td></tr>
+        <tr><td>Manufacturing & Industrial</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td><td class="sev-m">MITTEL</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ARCHETYPE ELABORATIONS -->
+    <div style="margin-top:24px;">
+
+      <h3>Content & Media <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH · HOCH</span></h3>
+      <p style="font-size:14px;">Dreifach-Alarm. Generative AI automatisiert Textproduktion, Bildgenerierung und Video-Editing (1. Ordnung). Gleichzeitig migrieren Nutzer zu AI-generierten Feeds und Zusammenfassungen — Reichweite und Werbeerlöse erodieren (2. Ordnung). Langfristig kollabiert das Aggregationsmodell: Warum eine Nachrichtenseite besuchen, wenn die AI die Antwort hat? Chegg (−99% seit ChatGPT-Launch) ist das Warnsignal.</p>
+
+      <h3>Professional Services <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · MITTEL · HOCH</span></h3>
+      <p style="font-size:14px;">AI ersetzt Research, Drafting und Due Diligence — das Herz vieler Beratungs- und Kanzleimodelle (1. Ordnung). Mandanten rüsten sich selbst mit AI auf und bringen Arbeit in-house; Stundensätze geraten unter Druck (2. Ordnung). Dritte Ordnung: Die Branche konsolidiert radikal — AI-native Plattformen kombinieren automatisierte Produktion mit menschlicher Qualitätskontrolle und verdrängen klassische Partnership-Modelle.</p>
+
+      <h3>Infrastruktur & Hosting <span style="font-size:12px; color:#C2EABD; font-weight:700;">NIEDRIG</span> · <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH</span></h3>
+      <p style="font-size:14px;">Der perfekte Kaskaden-Case. Die direkte AI-Bedrohung ist trivial — AI-Website-Builder sind inkrementell. Aber wenn Konsumenten über AI-Assistenten Informationen abrufen, ohne Websites zu besuchen, sinkt der Traffic (2. Ordnung). Der gesamte Hosting-Markt verschiebt sich von Website-Hosting zu Data/API-Hosting (3. Ordnung). <em>→ Detaillierte IONOS-Analyse unten.</em></p>
+
+      <h3>E-Commerce & Marktplätze <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL</span> · <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH</span></h3>
+      <p style="font-size:14px;">Listing-Optimierung und dynamisches Pricing sind automatisierbar, aber nicht existenzkritisch (1. Ordnung). Gefährlicher: AI-Shopping-Agenten, die für Konsumenten einkaufen, umgehen die Marktplatz-Oberfläche komplett — Etsy, Zalando, Amazon verlieren die Kundenbeziehung (2. Ordnung). Langfristig droht Disintermediation: Der AI-Agent verhandelt direkt mit Herstellern (3. Ordnung).</p>
+
+      <h3>Finanz-Intermediation <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH</span> · <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL · MITTEL</span></h3>
+      <p style="font-size:14px;">Underwriting, Kreditprüfung und Compliance sind hochgradig automatisierbar (1. Ordnung). Die Verhaltensänderung ist moderater — Finanzentscheidungen bleiben vertrauenssensitiv (2. Ordnung). Aber Embedded Finance (Checkout-Lending, API-Banking) verschiebt Wertschöpfung weg von klassischen Intermediären hin zu Plattformen (3. Ordnung). Regulierung bremst die Kaskade — aber verzögert sie nur.</p>
+
+      <h3>Education & Training <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH · HOCH</span></h3>
+      <p style="font-size:14px;">Zweiter Dreifach-Alarm. AI-Tutoren und Auto-Grading substituieren Kernleistungen (1. Ordnung). Studierende nutzen AI direkt — warum ein Kursabo kaufen, wenn ChatGPT das Gleiche kann? (2. Ordnung). Dritte Ordnung: Das Credentialing-Modell selbst steht in Frage — wenn AI Wissen on-demand liefert, was ist ein Zertifikat noch wert? Pearson und Chegg sind die Kanarienvögel.</p>
+
+      <h3>SaaS & Enterprise Software <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL</span> · <span style="font-size:12px; color:#E20046; font-weight:700;">HOCH · HOCH</span></h3>
+      <p style="font-size:14px;">AI-Features automatisieren vertikale SaaS-Funktionen — nützlich, aber kein Differenzierungsmerkmal mehr (1. Ordnung). Gravierender: General-purpose AI ersetzt spezialisierte Software ganz — warum ein CRM-Tool kaufen, wenn ein AI-Agent das übernimmt? (2. Ordnung). Dritte Ordnung: Der „SaaS Collapse" — ganze Softwarekategorien werden von AI-Plattformen absorbiert. <em>→ Detaillierte SAP-Analyse unten.</em></p>
+
+      <h3>Manufacturing & Industrial <span style="font-size:12px; color:#315872; font-weight:700;">MITTEL · MITTEL · MITTEL</span></h3>
+      <p style="font-size:14px;">Der resilienteste Archetyp. Produktionsoptimierung durch AI bringt Effizienzgewinne, aber physische Assets sind nicht digital substituierbar (1. Ordnung). AI-gesteuerte Beschaffung verändert Lieferantenbeziehungen graduell (2. Ordnung). Supply-Chain-Rekonfigurationen sind real, aber langsamer und weniger disruptiv als in digitalen Geschäftsmodellen (3. Ordnung). Mittleres Risiko — aber kein Freifahrtschein.</p>
+
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- CASE 1: IONOS -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>Case Study: IONOS SE</h3>
+        <span class="case-tag">Infrastruktur & Hosting</span>
+      </div>
+      <div class="case-body">
+        <p class="lead" style="font-size:16px;">Die Tankstelle: AI-Website-Builder. Los Angeles: Eine Welt, in der Websites ihren Zweck verlieren.</p>
+
+        <h3 style="margin-top:10px;">Das Geschäftsmodell</h3>
+        <div class="bm-overview">
+          <div class="bm-kpis">
+            <div class="bm-kpi"><span class="kpi-val">~€1,4 Mrd.</span><span class="kpi-label">Revenue (2024)</span></div>
+            <div class="bm-kpi"><span class="kpi-val">6 Mio.+</span><span class="kpi-label">Kunden</span></div>
+            <div class="bm-kpi"><span class="kpi-val">~85%</span><span class="kpi-label">KMU-Anteil</span></div>
+            <div class="bm-kpi"><span class="kpi-val">30+</span><span class="kpi-label">Länder</span></div>
+          </div>
+          <div class="revenue-bars">
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Web Hosting & Domains</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-primary" style="width:60%;">~60%</div></div>
+            </div>
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Cloud Solutions</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-cloud" style="width:25%;">~25%</div></div>
+            </div>
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Other Services</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-secondary" style="width:15%;">~15%</div></div>
+            </div>
+          </div>
+          <div class="bm-moat"><strong>Kernvorteil:</strong> Domain-Lock-in (Kunden binden sich über Domainnamen), One-Stop-Shop für nicht-technische KMU, langfristige Kundenbeziehungen (Ø Vertragslaufzeit >3 Jahre).</div>
+        </div>
+
+        <h3>Die Kaskade</h3>
+        <p style="font-size:14px;">In einer reinen First-Order-Analyse sieht IONOS solide aus. Aber die Kaskade zeigt ein anderes Bild:</p>
+
+        <div class="cascade-steps">
+          <div class="cascade-step step-low">
+            <span class="step-order">1.</span>
+            <span class="step-sev">Niedrig</span>
+            <strong style="color:#12203F;">AI-Website-Builder</strong><br>
+            Wix, Squarespace, IONOS selbst bieten AI-gestützte Seitenerstellung. Inkrementelle Verbesserung — IONOS kann dies integrieren und als Feature verkaufen. Kein Substitutionsrisiko.
+          </div>
+          <div class="cascade-step step-med">
+            <span class="step-order">2.</span>
+            <span class="step-sev">Hoch</span>
+            <strong>Zero-Click Economy</strong><br>
+            ChatGPT, Perplexity, Google AI Overviews liefern Antworten <strong>ohne Website-Besuch</strong>. Der Friseur, Handwerker, Steuerberater — ihre Websites verlieren den Zweck. Warum €15/Monat für Hosting zahlen, wenn niemand mehr die Seite besucht?
+          </div>
+          <div class="cascade-step step-high">
+            <span class="step-order">3.</span>
+            <span class="step-sev">Hoch</span>
+            <strong>Paradigmenwechsel</strong><br>
+            Der Hosting-Markt rekonfiguriert sich: von <strong>Website-Hosting</strong> (Präsentationsschicht) zu <strong>Data/API-Hosting</strong> (Datenschicht für AI-Konsumption). Neue Wettbewerber (Hyperscaler), neue Preislogik (Compute statt Webspace), neues Produkt.
+          </div>
+        </div>
+
+        <h3>Revenue at Risk</h3>
+        <div style="margin:10px 0;">
+          <div class="rev-bar-track" style="height:28px;">
+            <div class="rev-bar-fill fill-risk" style="width:60%; font-size:12px; color:#E20046;">~60% — Web Hosting & Domains unter Druck</div>
+          </div>
+          <div class="risk-bar-label">
+            <span class="risk-warn">2. + 3. Ordnung bedrohen den Kern des Geschäftsmodells</span>
+            <span>Cloud-Segment (~25%) adaptierbar</span>
+          </div>
+        </div>
+        <p style="font-size:14px;">Das Paradox: IONOS' First-Order-Risiko ist trivial. Aber ~60% der Erlösbasis hängen an einer Prämisse — <em>dass Endkunden Websites besuchen</em> — die durch Second- und Third-Order-Effekte erodiert. Die Frage für die Bewertungsanalyse: Wie schnell verschiebt sich dieses Gleichgewicht?</p>
+
+        <div class="figure-wrap">
+          <img src="figures/figure_ionos_bm_mpcm.png" alt="IONOS SE — Geschäftsmodell unter AI-Disruption">
+          <div class="figure-caption">IONOS SE — Geschäftsmodell-Disruption: Von der Tankstelle (AI-Website-Builder) zu Los Angeles (Zero-Click Economy).</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CASE 2: SAP -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>Case Study: SAP SE</h3>
+        <span class="case-tag">SaaS & Enterprise Software</span>
+      </div>
+      <div class="case-body">
+        <p class="lead" style="font-size:16px;">Die Tankstelle: AI automatisiert ERP-Aufgaben. Los Angeles: AI macht das monolithische ERP-Paradigma selbst obsolet.</p>
+
+        <h3 style="margin-top:10px;">Das Geschäftsmodell</h3>
+        <div class="bm-overview">
+          <div class="bm-kpis">
+            <div class="bm-kpi"><span class="kpi-val">~€35 Mrd.</span><span class="kpi-label">Revenue (2024)</span></div>
+            <div class="bm-kpi"><span class="kpi-val">437K</span><span class="kpi-label">Kunden</span></div>
+            <div class="bm-kpi"><span class="kpi-val">87%</span><span class="kpi-label">Forbes Global 2000</span></div>
+            <div class="bm-kpi"><span class="kpi-val">>€250 Mrd.</span><span class="kpi-label">Marktkapitalisierung</span></div>
+          </div>
+          <div class="revenue-bars">
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Cloud (wachsend)</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-cloud" style="width:45%;">~45%</div></div>
+            </div>
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Services</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-primary" style="width:25%;">~25%</div></div>
+            </div>
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Software-Lizenzen (↓)</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-secondary" style="width:15%;">~15%</div></div>
+            </div>
+            <div class="rev-bar-row">
+              <span class="rev-bar-label">Support</span>
+              <div class="rev-bar-track"><div class="rev-bar-fill fill-secondary" style="width:15%;">~15%</div></div>
+            </div>
+          </div>
+          <div class="bm-moat"><strong>Kernvorteil:</strong> Switching Costs (Ø Migration 18–24 Monate), Daten-Gravitation (ERP als zentrale Unternehmens-Datenbank), Cloud-Backlog >€60 Mrd. Die Wachstumsstory: Transition von Lizenzen zu Cloud-Subscriptions.</div>
+        </div>
+
+        <h3>Die duale Natur: Treiber und Ziel zugleich</h3>
+        <p style="font-size:14px;">SAP ist in einer einzigartigen Position: Das Unternehmen treibt AI-Integration aktiv voran (Joule, Business AI, BTP) — und ist gleichzeitig der AI-Disruption ausgesetzt. Diese Dualität macht den Case analytisch besonders interessant.</p>
+
+        <h3>Die Kaskade</h3>
+
+        <div class="cascade-steps">
+          <div class="cascade-step step-low">
+            <span class="step-order">1.</span>
+            <span class="step-sev">Mittel</span>
+            <strong style="color:#12203F;">AI-Copilot & Automatisierung</strong><br>
+            SAPs Joule automatisiert ERP-Routineaufgaben — Buchungen, Reportgenerierung, Stammdatenpflege. Für SAP selbst beherrschbar. Aber: <strong>Das Partner-Ökosystem</strong> (~€180 Mrd. Beratungsmarkt) trifft es härter. Low-Code/AI-Tools komprimieren Implementierungen um 30–50%.
+          </div>
+          <div class="cascade-step step-med">
+            <span class="step-order">2.</span>
+            <span class="step-sev">Hoch</span>
+            <strong>Unbundling-Druck</strong><br>
+            CFOs stellen die Grundsatzfrage: <em>Brauchen wir ein monolithisches ERP — oder können AI-native Punkt-Lösungen einzelne Prozesse besser?</em> Coupa (Procurement), Workday (HR), Ramp (Expenses) — spezialisierte Tools greifen SAPs Bundling-Logik an. Jedes Modul wird einzeln angreifbar.
+          </div>
+          <div class="cascade-step step-high">
+            <span class="step-order">3.</span>
+            <span class="step-sev">Hoch</span>
+            <strong>Paradigmenwechsel</strong><br>
+            AI-Agenten orchestrieren Geschäftsprozesse autonom — verhandeln mit Lieferanten, managen Inventar, verarbeiten Rechnungen. Die Rolle des ERP als Enterprise-<strong>„Betriebssystem"</strong> steht in Frage.
+          </div>
+        </div>
+
+        <div class="crimson-callout">
+          <div class="callout-label">Der strukturelle Shift</div>
+          <p><strong>Heute:</strong> SAP = <strong>„System of Record"</strong> — das ERP speichert Transaktionen und ist die zentrale Wahrheitsquelle. Wertversprechen: <em>Ein System für alles.</em></p>
+          <p><strong>Morgen:</strong> AI = <strong>„System of Intelligence"</strong> — AI orchestriert Prozesse unabhängig davon, wo Daten liegen. Wertversprechen verschiebt sich: <em>Das beste Tool für jeden Prozess.</em></p>
+          <p style="margin-top:12px;"><strong>Bewertungsfrage:</strong> SAP tradet bei ~35× Forward Earnings — Cloud-Wachstum und S/4HANA-Migration eingepreist. Ist das strukturelle Risiko, dass das ERP-Paradigma selbst unterhalb dieser Wachstumsstory erodiert, angemessen reflektiert? Das ist keine Prognose — es ist eine offene Frage, die mehr analytische Aufmerksamkeit verdient.</p>
+        </div>
+
+        <div class="figure-wrap">
+          <img src="figures/figure_sap_bm_mpcm.png" alt="SAP SE — Vom System of Record zum System of Intelligence">
+          <div class="figure-caption">SAP SE — Struktureller Paradigmenwechsel: Vom System of Record zum System of Intelligence.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- VALUATION -->
+    <h2>Was das für die Bewertungsanalyse bedeutet</h2>
+
+    <p>Die Tankstellen preisen wir gut ein — direkte AI-Automatisierung ist sichtbar, quantifizierbar und reflektiert in der Konsensschätzung. Bei den Los-Angeles-Effekten müssen wir als Analysten unseren Rahmen erweitern. Drei strukturelle Herausforderungen:</p>
+
+    <p><span class="val-pill">1 — Sektorale Silos</span> Research ist sektoral organisiert — zwangsläufig. Aber AI-Kaskaden wirken sektorübergreifend. Der Hosting-Analyst trackt Web-Hosting-KPIs — die Conversational-AI-Entwicklungen, die das Nutzerverhalten verändern, liegen im Sichtfeld des Tech-Analysten. Wir brauchen mehr Cross-Sektor-Perspektiven.</p>
+
+    <p><span class="val-pill">2 — Temporaler Horizont</span> Third-Order-Effekte mit Zeithorizont 5–10 Jahre werden doppelt diskontiert: in Eintrittswahrscheinlichkeit <em>und</em> Barwert. Das ist methodisch korrekt — aber AI-Zeitlinien komprimieren sich schneller als historische Technologiezyklen. Die Diskontfaktoren verdienen eine Überprüfung.</p>
+
+    <p><span class="val-pill">3 — Narratives Anchoring</span> „AI ersetzt X Jobs" ist konkret und erzählbar — ein guter Ankerpunkt für Analysen. Aber Kaskadeneffekte sind abstrakter und finden schwerer Eingang in Bewertungsmodelle. Das AI Threat Matrix bietet einen strukturierten Ansatz, diese Effekte systematisch zu erfassen.</p>
+
+    <div class="insight-box">
+      <div class="insight-label">Small & Mid-Caps: Besondere Aufmerksamkeit</div>
+      <p><strong>Geringere Analysten-Coverage + weniger diversifizierte Geschäftsmodelle + eingeschränktere Anpassungsressourcen</strong> = das Marktsegment, in dem Second- und Third-Order-Effekte von AI am meisten analytische Aufmerksamkeit verdienen.</p>
+    </div>
+
+    <!-- BOTTOM LINE -->
+    <div class="bottom-line">
+      <h2>Bottom Line</h2>
+      <p>Das AI Threat Matrix ist kein Prognosemodell. Es ist ein diagnostisches Werkzeug — eine Erweiterung unseres analytischen Rahmens. Es ergänzt die First-Order-Frage, die wir bereits gut beantworten, um zwei weitere:</p>
+
+      <ol>
+        <li>
+          <span class="question">Welche Aufgaben kann AI ersetzen?</span><br>
+          <span class="annotation">(First-Order — die Tankstelle. Hier ist die Analyse bereits weit fortgeschritten.)</span>
+        </li>
+        <li>
+          <span class="question">Wie verändert AI das Verhalten von Kunden, Zulieferern und Partnern?</span><br>
+          <span class="annotation">(Second-Order — Suburbia. Hier brauchen wir als Analysten mehr Cross-Sektor-Perspektive.)</span>
+        </li>
+        <li>
+          <span class="question">Könnte AI den gesamten Markt so rekonfigurieren, dass das Geschäftsmodell nicht mehr relevant ist?</span><br>
+          <span class="annotation">(Third-Order — Los Angeles. Hier müssen wir neu denken.)</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- SERIES TEASER -->
+    <div class="series-teaser">
+      <div class="series-label">Nächste Ausgabe</div>
+      <p>Dieses Briefing ist der Auftakt einer Reihe, in der wir — an der Schnittstelle von <strong>akademischer Forschung</strong> und <strong>Kapitalmarkt-Expertise</strong> — die Auswirkungen von AI auf Unternehmensbewertungen systematisch und nüchtern analysieren.</p>
+      <p><strong>Coming next:</strong> Deep Dive in einen spezifischen Sektor — mit konkreten Bewertungsimplikationen für ausgewählte Titel.</p>
+    </div>
+
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="figures/mpcm_logo_white.png" alt="MPCM Logo">
+      </div>
+      <div class="footer-contact">
+        Münchmeyer Petersen Capital Markets GmbH<br>
+        Bockenheimer Landstraße 66 · 60323 Frankfurt am Main<br>
+        <a href="mailto:info@mp-capitalmarkets.com">info@mp-capitalmarkets.com</a> · <a href="https://www.mp-capitalmarkets.com">www.mp-capitalmarkets.com</a>
+      </div>
+    </div>
+    <div class="footer-authors">
+      <p><strong>Prof. Dr. Tobias Blask</strong> — Akademische Perspektive & Framework-Entwicklung</p>
+      <p><strong>MPCM Equity Research</strong> — Kapitalmarkt-Perspektive & Bewertungsimplikationen</p>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-legal">
+      Dieses Dokument dient ausschließlich Informationszwecken und stellt keine Anlageberatung oder Empfehlung dar. Die enthaltenen Informationen wurden mit Sorgfalt zusammengestellt, erheben jedoch keinen Anspruch auf Vollständigkeit oder Richtigkeit. Vergangene Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Ergebnisse. © 2026 Münchmeyer Petersen Capital Markets GmbH. Alle Rechte vorbehalten.
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
