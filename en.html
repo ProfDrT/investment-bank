@@ -599,6 +599,17 @@
     font-size: 12px;
     line-height: 1.45;
   }
+  .scenario-central { flex: 2; }
+  .scenario-headline {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  .scenario-base .scenario-headline { color: #1a5c2e; }
+  .scenario-central .scenario-headline { color: #12203F; }
+  .scenario-extreme .scenario-headline { color: #E20046; }
   .scenario-label {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -890,14 +901,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">AI as production tool</div>
           <p>AI is a production tool, not a replacement. Studios, publishers, and brands control distribution and audience trust. AI lowers costs but human creators retain their editorial authority. Ad-supported models persist.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Ad CPM collapse, reach erodes</div>
           <p>Generative AI floods content supply, collapsing ad CPMs. Users shift to AI-curated feeds and summaries — publishers lose reach and the advertising model erodes. Chegg (stock down over 95% since ChatGPT's launch) is the canary in the coal mine.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Value chain collapses to model layer</div>
           <p>Content becomes effectively free. AI generates personalized media on demand — articles, video, music — tailored to each user. No one visits publishers anymore. The entire media value chain collapses to the model layer.</p>
         </div>
       </div>
@@ -911,14 +925,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">Efficiency gains, models intact</div>
           <p>Regulatory complexity and trust relationships protect traditional models. AI handles commoditized tasks (document review, basic research) but advisory relationships remain intact. Firms integrate AI as an efficiency lever.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Commodity work automated, rates compress</div>
           <p>AI replaces research, drafting, and due diligence — the commoditized heart of consulting and legal models. Clients arm themselves with AI and bring work in-house. Hourly rates compress, but relationship-driven advisory persists at the top. IBM's COBOL modernization business is the canary: when AI can break legacy-system lock-in, the consulting moat erodes.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Big Four → Big Two</div>
           <p>AI-native platforms combine automated production with human quality control, collapsing traditional partnership models. The Big Four become The Big Two. Entire junior professional tiers are eliminated.</p>
         </div>
       </div>
@@ -932,14 +949,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">Better tools, sticky customers</div>
           <p>AI website builders are incremental improvements. Hosting providers integrate them and upsell. Domain lock-in persists, and the SME customer base remains sticky. Business as usual with better tools.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">~82% revenue under structural pressure</div>
           <p>The zero-click economy erodes website traffic. AI assistants deliver answers without visits — the hairdresser's, plumber's, accountant's websites lose their purpose. SMEs question hosting spend. ~82% of revenue under structural pressure.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Hosting → data/API layer</div>
           <p>The hosting paradigm shifts entirely — from website hosting (presentation layer) to data/API hosting (data layer for AI consumption). Hyperscalers dominate the new market. Traditional hosting becomes a legacy business.</p>
         </div>
       </div>
@@ -953,14 +973,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">AI strengthens platforms</div>
           <p>AI improves product discovery, dynamic pricing, and logistics optimization — all of which strengthen platforms, not threaten them. Network effects and fulfillment moats (Amazon, Zalando) persist and deepen.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Agents mediate, aggregators squeezed</div>
           <p>AI shopping agents increasingly mediate purchases but still operate within marketplace APIs. Platforms that control fulfillment retain leverage; pure aggregators without logistics face margin compression. Discovery shifts but transactions stay.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Agents bypass marketplaces entirely</div>
           <p>AI agents negotiate directly with manufacturers, bypassing marketplaces entirely. The marketplace as "discovery layer" becomes irrelevant. Only platforms with physical infrastructure (warehousing, delivery) retain value.</p>
         </div>
       </div>
@@ -974,14 +997,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">Regulation shields incumbents</div>
           <p>Regulatory barriers and trust requirements shield incumbents. AI improves internal efficiency (underwriting, compliance) but doesn't fundamentally alter the customer relationship or market structure.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Embedded finance shifts value to platforms</div>
           <p>Underwriting, credit assessment, and compliance become highly automated. Embedded finance (checkout lending, API banking) shifts some value from intermediaries to platforms. Regulation slows the cascade — but only delays it.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Intermediaries → balance-sheet utilities</div>
           <p>AI-native financial agents handle all consumer finance within platform ecosystems — insurance, investment, lending. Traditional intermediaries become pure balance-sheet utilities, stripped of the advisory layer.</p>
         </div>
       </div>
@@ -995,14 +1021,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">Credentials protect the core</div>
           <p>Credential value and institutional prestige protect the core. AI tutors are supplements, not substitutes. Accreditation frameworks remain rigid, and employers continue to require formal qualifications.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Enrollment drops, Pearson/Chegg canaries</div>
           <p>AI tutors and auto-grading substitute core instructional services. Students bypass course platforms for direct AI interaction — why pay for a subscription when ChatGPT teaches the same? Enrollment in commodity content courses drops sharply. Pearson and Chegg are the canaries.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Credential fractures, doesn't shatter</div>
           <p>AI-verified competency assessments begin to challenge traditional certifications. But deeply embedded institutional prestige — universities, professional bodies, regulatory requirements — resists full disruption. The credential fractures, but doesn't shatter.</p>
         </div>
       </div>
@@ -1016,14 +1045,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">Switching costs protect incumbents</div>
           <p>Enterprise switching costs and data lock-in protect incumbents. AI features become table stakes but don't threaten the SaaS model itself. Incumbents like SAP, Salesforce, ServiceNow integrate AI and maintain pricing power.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Copilots automate within SaaS</div>
           <p>AI copilots automate workflows within existing software. Some vertical SaaS categories face feature absorption, but enterprise procurement inertia and integration complexity slow displacement. The moat is organizational, not technical.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">"SaaS Collapse" — categories absorbed</div>
           <p>General-purpose AI platforms absorb entire software categories — the "SaaS Collapse." Why buy a CRM when an AI agent handles it natively? Entire mid-market SaaS layers disappear. Only infrastructure-grade platforms survive.</p>
         </div>
       </div>
@@ -1037,14 +1069,17 @@
       <div class="scenario-grid">
         <div class="scenario scenario-base">
           <div class="scenario-label">Base Case</div>
+          <div class="scenario-headline">Atoms resist digital disruption</div>
           <p>Physical production is inherently AI-resistant. Robotics automation is incremental and capital-intensive. Legacy installed base creates a long transition runway. AI is a tool for operational efficiency, not a threat vector.</p>
         </div>
         <div class="scenario scenario-central">
           <div class="scenario-label">Central Scenario</div>
+          <div class="scenario-headline">Efficiency gains, not disruption</div>
           <p>AI optimizes predictive maintenance, quality control, and supply chain planning — delivering efficiency gains, not disruption. Physical assets cannot be digitally substituted. The industry benefits from AI more than it suffers from it.</p>
         </div>
         <div class="scenario scenario-extreme">
           <div class="scenario-label">Extreme</div>
+          <div class="scenario-headline">Autonomous factories — decades away</div>
           <p>Fully autonomous factories and AI-orchestrated supply chains restructure global manufacturing networks. Reshoring accelerates. But the timeline is decades, not years — and the installed base creates enormous inertia.</p>
         </div>
       </div>
